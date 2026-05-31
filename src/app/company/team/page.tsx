@@ -22,7 +22,7 @@ const team = [
     description: 'Designs and trains the models that extract clinical metrics from camera feeds — hand landmarks, gaze tracking, and facial symmetry scoring.',
     photo: '/team/alvaro.jpg',
     photoPosition: 'center 20%',
-    linkedin: 'https://www.linkedin.com/in/alvaro-gil-arjona/',
+    linkedin: 'https://www.linkedin.com/in/alvarogilarjona/',
     github: 'https://github.com/alvarogilarjona'
   },
   {

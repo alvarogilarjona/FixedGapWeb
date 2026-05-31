@@ -6,9 +6,9 @@
 - [x] Navbar con mega menú
 - [x] Hero (placeholder vídeo)
 - [x] Problem
-- [x] Solution (rediseño minimalista)
+- [x] Solution (zigzag scroll)
 - [x] Pipeline (con animación)
-- [ ] Demo
+- [x] Demo
 - [x] Traction
 - [x] Metrics
 - [ ] Manifesto
@@ -25,6 +25,8 @@
 - [x] Página /company/team
 - [x] Página /company/manifesto
 - [x] Página /company/about
-- [ ] Página /pricing
-- [ ] Página /contact
+- [x] Página /science/references
+- [x] Página /science/evidence
+- [x] Página /pricing
+- [x] Página /contact
 - [ ] Deploy a fixedgap.com

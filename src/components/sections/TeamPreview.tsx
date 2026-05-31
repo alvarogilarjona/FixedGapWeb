@@ -22,7 +22,7 @@ export default function TeamPreview() {
 
         {/* Headline */}
         <h2 style={{ color: COLORS.headline }}
-          className="text-4xl md:text-5xl font-bold mt-4 leading-tight max-w-2xl">
+          className="text-5xl md:text-6xl font-bold mt-4 leading-tight max-w-2xl">
           Built by engineers, guided by medicine.
         </h2>
 

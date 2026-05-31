@@ -16,12 +16,12 @@ export default function Home() {
     <main>
       <Hero />
       <Problem />
+      <Traction />
       <Solution />
       <div style={{ height: 'calc(100vh + 5px)' }}>
         <Pipeline />
       </div>
       {/* <Demo /> */}  {/* pendiente — se activa cuando haya vídeo */}
-      <Traction />
       <Metrics />
       <TeamPreview />
       <Contact />

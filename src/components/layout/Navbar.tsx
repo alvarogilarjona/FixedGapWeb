@@ -11,6 +11,7 @@ import {
   GraduationCap,
   FlaskConical,
   FileText,
+  BarChart3,
 } from 'lucide-react';
 
 interface MegaMenuItem {
@@ -118,6 +119,12 @@ const menuItems: MenuItem[] = [
         description: 'Peer-reviewed literature 2024-2026',
         href: '/science/references',
       },
+      {
+        icon: <BarChart3 className="w-5 h-5" />,
+        label: 'The Evidence',
+        description: 'Clinical data on the rehabilitation gap',
+        href: '/science/evidence',
+      },
     ],
   },
 ];
@@ -132,6 +139,7 @@ export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileOpenMenu, setMobileOpenMenu] = useState<string | null>(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-border h-20">
@@ -159,9 +167,15 @@ export default function Navbar() {
                 onMouseEnter={() => setHoveredItem(menu.label)}
                 onMouseLeave={() => setHoveredItem(null)}
               >
-                <button className="text-base font-medium text-brand-navy hover:text-brand-blue transition-colors">
-                  {menu.label}
-                </button>
+                {menu.label === 'Demo' ? (
+                  <Link href="/demo" className="text-base font-medium text-brand-navy hover:text-brand-blue transition-colors">
+                    {menu.label}
+                  </Link>
+                ) : (
+                  <button className="text-base font-medium text-brand-navy hover:text-brand-blue transition-colors">
+                    {menu.label}
+                  </button>
+                )}
 
                 {/* Invisible bridge to prevent gap */}
                 {hoveredItem === menu.label && (
@@ -187,69 +201,79 @@ export default function Navbar() {
                           position: 'absolute',
                           top: 'calc(100% + 12px)',
                           left: '50%',
-                          transform: 'translateX(-50%)',
-                          minWidth: '680px',
+                          marginLeft: '-550px',
+                          minWidth: '1100px',
                           backgroundColor: 'white',
-                          borderRadius: '12px',
+                          borderRadius: '16px',
                           boxShadow: '0 8px 40px rgba(0,0,0,0.12)',
                           border: '1px solid #E8E0D0',
                           zIndex: 100,
                         }}
                         className="animate-fadeIn"
                       >
-                        <div className="flex gap-8 p-6">
+                        <div className="flex gap-10 p-8">
                           {/* Left Column */}
-                          <div className="flex flex-col justify-between w-48 shrink-0">
+                          <div className="flex flex-col justify-between w-56 shrink-0">
                             <div>
-                              <h3 className="font-semibold text-brand-navy text-sm mb-2">
+                              <h3 className="font-semibold text-brand-navy text-lg mb-3">
                                 Watch FixedGap
                               </h3>
-                              <p className="text-xs text-brand-muted leading-relaxed">
+                              <p className="text-sm text-brand-muted leading-relaxed">
                                 {menu.description}
                               </p>
                             </div>
                             <a
                               href="/demo"
-                              className="text-xs text-brand-blue font-medium hover:underline mt-4"
+                              className="text-sm text-brand-blue font-medium hover:underline mt-6"
                             >
                               See all videos →
                             </a>
                           </div>
 
                           {/* Right Column - Video Thumbnails */}
-                          <div className="grid grid-cols-2 gap-3 flex-1">
+                          <div className="grid grid-cols-2 gap-6 flex-1">
                             {/* Video 1 - Our Story */}
                             <div>
-                              <div className="relative rounded-lg overflow-hidden cursor-pointer group">
-                                <div className="bg-brand-navy aspect-video w-full flex items-center justify-center">
+                              <div className="relative rounded-xl overflow-hidden cursor-pointer group">
+                                <div className="bg-brand-navy aspect-video w-full flex items-center justify-center" style={{ minHeight: '240px' }}>
                                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-                                  <button className="relative z-10 flex items-center gap-2 bg-white/90 text-brand-navy text-xs font-semibold px-3 py-2 rounded-full">
+                                  <button className="relative z-10 flex items-center gap-2 bg-white/90 text-brand-navy text-sm font-semibold px-5 py-3 rounded-full hover:bg-white transition-colors">
                                     ▶ Watch Video
                                   </button>
                                 </div>
                               </div>
-                              <p className="text-xs text-brand-navy font-medium mt-2">
+                              <p className="text-sm text-brand-navy font-semibold mt-3">
                                 Our Story
                               </p>
-                              <p className="text-xs text-brand-muted">
+                              <p className="text-sm text-brand-muted mt-1">
                                 The problem we are solving
                               </p>
                             </div>
 
                             {/* Video 2 - See it in action */}
                             <div>
-                              <div className="relative rounded-lg overflow-hidden cursor-pointer group">
-                                <div className="bg-brand-navy aspect-video w-full flex items-center justify-center">
-                                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-                                  <button className="relative z-10 flex items-center gap-2 bg-white/90 text-brand-navy text-xs font-semibold px-3 py-2 rounded-full">
+                              <div
+                                className="relative rounded-xl overflow-hidden cursor-pointer group"
+                                onClick={() => setIsVideoModalOpen(true)}
+                              >
+                                <video
+                                  className="w-full h-full object-cover aspect-video"
+                                  style={{ minHeight: '240px' }}
+                                  muted
+                                  playsInline
+                                >
+                                  <source src="/demo.mp4" type="video/mp4" />
+                                </video>
+                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                                  <button className="relative z-10 flex items-center gap-2 bg-white/90 text-brand-navy text-sm font-semibold px-5 py-3 rounded-full hover:bg-white transition-colors">
                                     ▶ Watch Video
                                   </button>
                                 </div>
                               </div>
-                              <p className="text-xs text-brand-navy font-medium mt-2">
+                              <p className="text-sm text-brand-navy font-semibold mt-3">
                                 See it in action
                               </p>
-                              <p className="text-xs text-brand-muted">
+                              <p className="text-sm text-brand-muted mt-1">
                                 FixedGap game walkthrough
                               </p>
                             </div>
@@ -263,8 +287,8 @@ export default function Navbar() {
                           position: 'absolute',
                           top: 'calc(100% + 12px)',
                           left: '50%',
-                          transform: 'translateX(-50%)',
-                          minWidth: menu.label === 'Product' ? '1000px' : '640px',
+                          marginLeft: menu.label === 'Product' ? '-450px' : '-400px',
+                          minWidth: menu.label === 'Product' ? '900px' : '800px',
                           backgroundColor: 'white',
                           borderRadius: '12px',
                           boxShadow: '0 8px 40px rgba(0,0,0,0.12)',
@@ -288,7 +312,7 @@ export default function Navbar() {
                             </div>
 
                             {/* Section 2: FixedGap Logo */}
-                            <div className="w-[280px] shrink-0 border-r border-brand-border pr-6 flex flex-col items-center justify-center">
+                            <div className="w-[180px] shrink-0 border-r border-brand-border pr-6 flex flex-col items-center justify-center">
                               <img
                                 src="/og-image.jpg"
                                 alt="FixedGap"
@@ -329,9 +353,9 @@ export default function Navbar() {
                           </div>
                         ) : (
                           /* Default Layout for Company & Science */
-                          <div className="flex gap-10">
-                            {/* Left Column - Group Description */}
-                            <div className="w-[220px] shrink-0 border-r border-brand-border pr-8">
+                          <div className="flex gap-8">
+                            {/* Section 1: Description */}
+                            <div className="w-[180px] shrink-0 border-r border-brand-border pr-6">
                               <h3 className="font-bold text-brand-navy text-[15px] mb-2">
                                 {menu.label}
                               </h3>
@@ -340,7 +364,19 @@ export default function Navbar() {
                               </p>
                             </div>
 
-                            {/* Right Column - Items with Icons */}
+                            {/* Section 2: FixedGap Logo */}
+                            <div className="w-[180px] shrink-0 border-r border-brand-border pr-6 flex flex-col items-center justify-center">
+                              <img
+                                src="/og-image.jpg"
+                                alt="FixedGap"
+                                className="w-full h-auto rounded-lg shadow-md"
+                              />
+                              <p className="text-xs text-brand-muted text-center leading-relaxed mt-3">
+                                Clinical-grade movement analysis through gamified rehabilitation
+                              </p>
+                            </div>
+
+                            {/* Section 3: Items with Icons */}
                             <div className="flex flex-col gap-1 flex-1">
                               {menu.items.map((item) => (
                                 <Link
@@ -494,6 +530,67 @@ export default function Navbar() {
             >
               Book a Demo
             </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Video Modal */}
+      {isVideoModalOpen && (
+        <div
+          className="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4 md:p-8"
+          onClick={() => setIsVideoModalOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-6xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setIsVideoModalOpen(false)}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+              aria-label="Close video"
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Video */}
+            <div className="relative bg-black rounded-lg overflow-hidden">
+              <video
+                className="w-full h-auto"
+                controls
+                autoPlay
+                playsInline
+              >
+                <source src="/demo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            {/* Video info */}
+            <div className="mt-4 text-center">
+              <h3 className="text-white text-xl font-semibold">
+                FixedGap Game Walkthrough
+              </h3>
+              <p className="text-gray-400 text-sm mt-2">
+                See how FixedGap captures clinical biomarkers through an engaging game
+              </p>
+              <a
+                href="/demo"
+                className="inline-block mt-4 text-brand-blue hover:underline text-sm font-medium"
+              >
+                View full demo page →
+              </a>
+            </div>
           </div>
         </div>
       )}

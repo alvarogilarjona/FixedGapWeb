@@ -1,126 +1,212 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Monitor, Activity, FileText } from 'lucide-react'
+import Image from 'next/image'
+import { useState } from 'react'
 
 const COLORS = {
-  bg: '#0A0F1E',
-  label: '#6B7689',
-  headline: '#FFFFFF',
-  body: '#98A2B3',
+  bg: '#FFFFFF',
+  bgAlt: '#0A0F1E',
+  label: '#1F4C9C',
+  labelAlt: '#98A2B3',
+  headline: '#1A1F3C',
+  headlineAlt: '#FFFFFF',
+  body: '#6B7689',
+  bodyAlt: '#98A2B3',
+  tagBg: '#EAF0FA',
+  tagColor: '#1F4C9C',
+  metricBg: '#F7F9FC',
+  metricBorder: '#E8E0D0',
+  metricText: '#1A1F3C',
   cardBg: '#FFFFFF',
+  cardBgAlt: '#141B2D',
   cardBorder: '#E8E0D0',
+  cardBorderAlt: '#1E2A40',
   cardTitle: '#1A1F3C',
+  cardTitleAlt: '#FFFFFF',
   cardBody: '#6B7689',
-  cardNumber: '#1F4C9C',
-  cardNumberBg: '#EAF0FA',
-  lineColor: '#1F4C9C',
-  iconBg: '#EAF0FA',
-  iconColor: '#1F4C9C',
-  accentBlue: '#1F4C9C',
+  cardBodyAlt: '#98A2B3',
+  bulletColor: '#1F4C9C',
+  bulletColorAlt: '#4A7BDB',
+  imagePlaceholder: '#E8E0D0',
 }
 
-const steps = [
+const metrics = [
+  'Pinch precision',
+  'Finger extension',
+  'Hand opening speed',
+  'Wrist ROM',
+  'Palm velocity',
+  'Finger individuation',
+  'Tremor',
+  'Inter-repetition variability',
+]
+
+const stakeholders = [
   {
-    number: '01',
-    icon: Monitor,
-    title: 'Patient opens FixedGap',
-    subtitle: 'The experience',
+    title: 'For clinicians',
     points: [
-      'Under 5 minutes',
-      'No setup required',
-      'Any device with a camera',
-      'Engaging fishing game',
+      'Continuous visibility into recovery between visits',
+      'Data-driven decisions instead of patient recall',
+      'Earlier detection of deterioration',
+      'Better patient prioritization',
     ]
   },
   {
-    number: '02',
-    icon: Activity,
-    title: 'Computer vision captures movement',
-    subtitle: 'The technology',
+    title: 'For patients',
     points: [
-      '12 hand biomarkers',
-      'Real-time landmark tracking',
-      'No data leaves the device',
-      'ML models process instantly',
+      'Engaging rehabilitation — not repetitive exercises',
+      'Feel supported between appointments',
+      'Increased motivation and adherence',
+      'Awareness of their own progress',
     ]
   },
   {
-    number: '03',
-    icon: FileText,
-    title: 'Neurologist receives the report',
-    subtitle: 'The outcome',
+    title: 'For health systems',
     points: [
-      'Full clinical report',
-      'Clinical Recovery Index',
-      'Sent automatically',
-      'Before the next appointment',
+      'More patients monitored, same resources',
+      'Reduced long-term costs and complications',
+      'Fewer unnecessary check-ins',
+      'More efficient use of specialist capacity',
     ]
   },
 ]
 
 export default function Solution() {
   return (
-    <section style={{ backgroundColor: COLORS.bg }} className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <>
+      {/* PARTE 1 — One camera. Hand tracking. */}
+      <section style={{ backgroundColor: COLORS.bg }} className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
 
-        {/* Header */}
-        <span style={{ color: COLORS.label }}
-          className="text-xs font-semibold tracking-widest uppercase">
-          The Solution
-        </span>
-        <h2 style={{ color: COLORS.headline }}
-          className="text-4xl md:text-6xl font-bold mt-4 leading-tight max-w-3xl">
-          Zero hardware.<br />
-          <span style={{ color: COLORS.accentBlue }}>Just a webcam.</span>
-        </h2>
+          <span style={{ color: COLORS.label }}
+            className="text-xs font-semibold tracking-widest uppercase">
+            What we capture
+          </span>
+          <h2 style={{ color: COLORS.headline }}
+            className="text-4xl md:text-5xl font-bold mt-4 leading-tight max-w-2xl">
+            One camera.<br />Clinical-grade hand tracking.
+          </h2>
+          <p style={{ color: COLORS.body }}
+            className="text-lg mt-4 max-w-2xl leading-relaxed">
+            Everything a physiotherapist checks in a 15-minute visit —
+            captured automatically every session.
+          </p>
 
-        {/* Tres columnas con líneas conectoras */}
-        <div className="mt-16 relative">
+          {/* Layout dos columnas */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-16 items-center">
 
-          {/* Líneas conectoras — visibles solo en desktop */}
-          <div className="hidden lg:block absolute top-[88px] left-0 right-0 z-0">
-            <svg width="100%" height="4" style={{ overflow: 'visible' }}>
-              {/* Línea del 01 al 02 */}
-              <motion.line
-                x1="33%" y1="2"
-                x2="50%" y2="2"
-                stroke={COLORS.lineColor}
-                strokeWidth="2"
-                strokeDasharray="6 4"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-              />
-              {/* Línea del 02 al 03 */}
-              <motion.line
-                x1="50%" y1="2"
-                x2="67%" y2="2"
-                stroke={COLORS.lineColor}
-                strokeWidth="2"
-                strokeDasharray="6 4"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                viewport={{ once: true }}
-              />
-            </svg>
-          </div>
+            {/* Columna izquierda — descripción + métricas */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 style={{ color: COLORS.headline }}
+                className="text-2xl font-bold mb-4">
+                21 landmarks tracked per hand.
+              </h3>
+              <p style={{ color: COLORS.body }}
+                className="text-base leading-relaxed mb-8">
+                MediaPipe detects every joint in real time. We measure how well
+                patients open their hand, pinch objects, and control finger movements —
+                the same things a physio checks in clinic, captured automatically every session.
+              </p>
 
-          {/* Grid tres columnas */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-10">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.2,
-                  ease: 'easeOut'
+              {/* Grid de métricas */}
+              <div className="grid grid-cols-2 gap-3">
+                {metrics.map((metric, i) => (
+                  <motion.div
+                    key={metric}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: i * 0.05 }}
+                    viewport={{ once: true }}
+                    style={{
+                      backgroundColor: COLORS.metricBg,
+                      border: `1px solid ${COLORS.metricBorder}`,
+                      borderRadius: '8px',
+                      padding: '10px 14px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                    }}
+                  >
+                    <div style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      backgroundColor: COLORS.bulletColor,
+                      flexShrink: 0,
+                    }} />
+                    <span style={{ color: COLORS.metricText, fontSize: '13px', fontWeight: 500 }}>
+                      {metric}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Columna derecha — imagen */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              style={{
+                borderRadius: '20px',
+                overflow: 'hidden',
+                aspectRatio: '4/3',
+              }}
+            >
+              <Image
+                src="/hand-tracking.jpg"
+                alt="FixedGap hand tracking with computer vision"
+                width={600}
+                height={450}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
                 }}
-                viewport={{ once: true, margin: '-50px' }}
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none'
+                  e.currentTarget.parentElement!.style.backgroundColor = COLORS.imagePlaceholder
+                  e.currentTarget.parentElement!.innerHTML = '<p style="display:flex;align-items:center;justify-content:center;height:100%;color:#98A2B3;font-size:13px">[ Hand tracking image — coming soon ]</p>'
+                }}
+              />
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* PARTE 2 — Value for every stakeholder */}
+      <section style={{ backgroundColor: COLORS.bgAlt }} className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+
+          <span style={{ color: COLORS.labelAlt }}
+            className="text-xs font-semibold tracking-widest uppercase">
+            Value proposition
+          </span>
+          <h2 style={{ color: COLORS.headlineAlt }}
+            className="text-4xl md:text-5xl font-bold mt-4 leading-tight max-w-2xl">
+            Value for every stakeholder.
+          </h2>
+          <p style={{ color: COLORS.bodyAlt }}
+            className="text-lg mt-4 max-w-2xl leading-relaxed">
+            FixedGap creates measurable value across the entire care chain.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            {stakeholders.map((stakeholder, index) => (
+              <motion.div
+                key={stakeholder.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                viewport={{ once: true }}
                 style={{
                   backgroundColor: COLORS.cardBg,
                   border: `1px solid ${COLORS.cardBorder}`,
@@ -128,72 +214,32 @@ export default function Solution() {
                   padding: '28px',
                 }}
               >
-                {/* Número + icono */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div style={{
-                    backgroundColor: COLORS.cardNumberBg,
-                    color: COLORS.cardNumber,
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '10px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: 800,
-                    fontSize: '14px',
-                    flexShrink: 0,
-                  }}>
-                    {step.number}
-                  </div>
-                  <div style={{
-                    backgroundColor: COLORS.iconBg,
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '10px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  }}>
-                    <step.icon size={18} style={{ color: COLORS.iconColor }} />
-                  </div>
-                </div>
-
-                {/* Subtitle */}
-                <p style={{ color: COLORS.accentBlue, fontSize: '11px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>
-                  {step.subtitle}
-                </p>
-
-                {/* Título */}
-                <h3 style={{ color: COLORS.cardTitle, fontSize: '18px', fontWeight: 700, lineHeight: 1.3, marginBottom: '16px' }}>
-                  {step.title}
+                <h3 style={{ color: COLORS.cardTitle, fontSize: '17px', fontWeight: 700, marginBottom: '16px' }}>
+                  {stakeholder.title}
                 </h3>
-
-                {/* Puntos */}
-                <div className="flex flex-col gap-2">
-                  {step.points.map((point, i) => (
-                    <div key={i} className="flex items-center gap-3">
+                <div className="flex flex-col gap-3">
+                  {stakeholder.points.map((point, i) => (
+                    <div key={i} className="flex items-start gap-3">
                       <div style={{
-                        width: '5px',
-                        height: '5px',
+                        width: '6px',
+                        height: '6px',
                         borderRadius: '50%',
-                        backgroundColor: COLORS.accentBlue,
+                        backgroundColor: COLORS.bulletColor,
                         flexShrink: 0,
+                        marginTop: '6px',
                       }} />
-                      <p style={{ color: COLORS.cardBody, fontSize: '13px', lineHeight: 1.5 }}>
+                      <p style={{ color: COLORS.cardBody, fontSize: '13px', lineHeight: 1.6 }}>
                         {point}
                       </p>
                     </div>
                   ))}
                 </div>
-
               </motion.div>
             ))}
           </div>
 
         </div>
-
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

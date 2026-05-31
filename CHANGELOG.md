@@ -5,6 +5,250 @@ Actualizar este fichero después de cada cambio importante.
 
 ---
 
+## [Loading screen] — 2026-05-31
+### Añadido
+- Pantalla de carga con animación "Fixed Gap se cierra"
+- Fixed en navy (#1A1F3C), Gap en azul brand (#1F4C9C)
+- Bordes decorativos en forma de L en las esquinas de cada palabra:
+  - Fixed: bordes L en esquinas superior e inferior izquierda
+  - Gap: bordes L en esquinas superior e inferior derecha
+- Bordes aparecen con escala animada a 0.5s
+- El espacio entre palabras se cierra animado
+- Fade out suave a los 2 segundos
+- Añadido en layout.tsx como primer elemento
+- Secuencia temporal:
+  - 0.2s: "Fixed" y "Gap" aparecen desde lados opuestos
+  - 0.5s: bordes decorativos aparecen con efecto de escala
+  - 0.8s: el espacio entre ellas se cierra
+  - 1.5s: fade out comienza
+  - 2.0s: la web aparece
+
+---
+
+## [Contact — FAQs actualizados] — 2026-05-30
+### Modificado
+- Reemplazadas las 3 FAQs anteriores por 5 nuevas más completas:
+  1. ¿Hardware/sensores necesarios?
+  2. ¿Qué métricas clínicas captura?
+  3. ¿Para clínica o uso doméstico?
+  4. ¿Quién paga por FixedGap?
+  5. ¿Qué condiciones soporta?
+- Respuestas más detalladas y enfocadas en dudas clave de buyers
+
+---
+
+## [Navbar — Demo clickeable] — 2026-05-30
+### Modificado
+- Item "Demo" en navbar ahora es un link directo a /demo
+- Sigue mostrando el mega menú al hacer hover
+- Permite navegación directa con un clic
+
+---
+
+## [Contact landing — rediseño editorial] — 2026-05-30
+### Modificado
+- Eliminadas las cards con iconos
+- Headline grande en blanco: "Let's talk." (clamp 3rem-6rem)
+- Email en grande con hover azul (#1F4C9C)
+- Botón "Book a 30-min call" alineado a la derecha
+- Divider horizontal entre headline y contenido
+- Fondo oscuro (#0A0F1E) estilo minimalista
+- Layout fila en desktop, columna en móvil
+- Estilo tipo Linear/Vercel con tipografía espaciada
+
+---
+
+## [Pipeline — pasos inactivos más grandes] — 2026-05-29
+### Modificado
+- Título pasos inactivos: 18px font-semibold (600)
+- Número pasos inactivos: 56x56px centrado (antes 32px inline)
+- Opacidad pasos inactivos: 0.55 (antes 0.35)
+- Padding aumentado a 20px 24px para pasos inactivos
+- Gap entre pasos: 8px (antes 4px)
+- Pasos inactivos más visibles y fáciles de leer
+
+---
+
+## [/science/evidence] — 2026-05-29
+### Modificado
+- Sección de conclusión con fondo gris claro (#F7F9FC)
+### Añadido
+- Página /science/evidence con 5 estadísticas clínicas reales sobre el gap de rehabilitación
+- Hero oscuro con headline "The rehabilitation system is failing stroke patients"
+- Cada estadística con: número grande, label descriptivo, impacto (cursiva), fuente en badge
+- Layout grid 1:3 (número grande | texto completo)
+- Sección conclusión con headline + 2 párrafos + CTA a /contact
+- Animaciones Framer Motion con stagger en cada estadística
+- Navbar actualizado con nuevo item "The Evidence" en desplegable Science (icono BarChart3)
+- Todos los colores como variables COLORS
+### Fuentes citadas
+- NCBI — Limb heaviness as a sensorimotor disorder
+- Top Stroke Rehabil, 2024 — Differences in rehabilitation evaluation access
+- Frontiers in Medicine, 2025 — Home-based exercise rehabilitation
+- Frontiers in Neurology, 2025 — Adherence to rehabilitation exercise
+- The Lancet Neurology, 2021 — GBD 2019 Stroke Collaborators
+
+---
+
+## [Solution — rediseño final dos partes] — 2026-05-29
+### Modificado
+- Rediseño completo de Solution.tsx con dos secciones independientes:
+  - Parte 1 (fondo blanco): "One camera. Clinical-grade hand tracking"
+    - Grid 2 columnas: texto + métricas (izquierda) + imagen hand tracking (derecha)
+    - 8 métricas en grid 2x4 con bullets azules
+    - Descripción de MediaPipe y 21 landmarks
+  - Parte 2 (fondo beige): "Value for every stakeholder"
+    - Grid 3 cards: For clinicians, For patients, For health systems
+    - Cada card con 4 puntos de valor con bullets azules
+- Backup guardado en SolutionV4Backup.tsx
+- Colores actualizados: bg blanco, bgAlt beige, metricBg gris claro
+- Animaciones Framer Motion: fade + slide desde izquierda/derecha
+### Resuelto
+- Imagen hand-tracking.jpg conectada correctamente desde /public/hand-tracking.jpg
+- Parte 2 (Value proposition) con fondo azul oscuro (#0A0F1E)
+- Cards de stakeholders con fondo blanco (#FFFFFF) sobre fondo azul oscuro
+- Texto oscuro en cards para contraste sobre fondo blanco
+- Bullets azules (#1F4C9C) sobre fondo blanco
+
+---
+
+## [/pricing] — 2026-05-28
+### Añadido
+- Página /pricing completa
+- Sección Buyer vs User con cards diferenciadas
+- Dos planes: clínicas (49-99€/mes) e insurers (20-30€/paciente)
+- ROI callout en plan de aseguradoras
+- Nota GDPR en footer de pricing
+- CTA final a /contact
+- Todos los colores como variables
+- Componentes badge.tsx y border-trail.tsx añadidos a /components/ui
+
+---
+
+## [/demo — CTA añadido] — 2026-05-28
+### Añadido
+- Sección CTA final "Join the pilot"
+- Link a /contact
+
+---
+
+## [Navbar — modal de video] — 2026-05-28
+### Modificado
+- Click en "Watch Video" abre modal fullscreen
+- Video se muestra en grande con controles nativos (incluyendo fullscreen)
+- Botón X para cerrar el modal
+- Click fuera del video cierra el modal
+- Video autoplay al abrir modal
+- Link a página /demo completa debajo del video
+
+---
+
+## [/demo — video añadido] — 2026-05-28
+### Modificado
+- Video demo.mp4 añadido en sección "See it in action"
+- Placeholder reemplazado por video real con controles
+- Video responsive con aspect-ratio 16/9
+
+---
+
+## [Hero — revertido a diseño original] — 2026-05-28
+### Modificado
+- Hero restaurado al diseño centrado original
+- Eliminado layout de dos columnas
+- Texto centrado sin imagen a la derecha
+
+---
+
+## [Container Scroll Animation — componente añadido] — 2026-05-28
+### Añadido
+- Componente ContainerScroll en src/components/ui/container-scroll-animation.tsx
+- Demo component HeroScrollDemo en src/components/ui/hero-scroll-demo.tsx
+- Animación 3D de scroll con rotación y escala
+- Responsive: diferente comportamiento móvil/desktop
+- Imagen placeholder de Unsplash en demo
+### Pendiente
+- Integrar componente en una página si se necesita
+- Customizar colores según brand FixedGap
+
+---
+
+## [Solution — color transition on scroll] — 2026-05-28
+### Modificado
+- Fondo transiciona de #E8E8E8 a #0A0F1E al entrar en la sección
+- Color se mantiene mientras está en viewport
+- Vuelve al color original al salir de la sección
+- Solo el fondo cambia — cards se mantienen blancas
+- Headline y label adaptan color al oscurecerse el fondo
+- Usando useInView de react-intersection-observer
+
+---
+
+## [Traction — reposicionada] — 2026-05-28
+### Modificado
+- Sección Traction movida justo después de Problem (antes de Solution)
+- Orden actualizado: Hero → Problem → Traction → Solution → Pipeline → Metrics → TeamPreview → Contact
+
+---
+
+## [/demo — ajustes] — 2026-05-28
+### Modificado
+- Fondo blanco en ambas secciones de vídeo
+- Frases catchy añadidas debajo de cada placeholder
+
+---
+
+## [/demo] — 2026-05-28
+### Añadido
+- Página /demo con hero oscuro (#0A0F1E)
+- Sección "Our Story" con placeholder de vídeo
+- Sección "See it in action" con placeholder de vídeo
+- Link "See all videos →" del navbar apunta correctamente a /demo
+### Pendiente
+- Sustituir placeholders por vídeos reales
+
+---
+
+## [/science/references] — 2026-05-27
+### Añadido
+- Página /science/references completa
+- 6 referencias placeholder separadas en validated (3) y grounded (3)
+- Nota de transparencia sobre fase de validación
+- Tags verde/azul por tipo de evidencia (Directly validated / Clinically grounded)
+- Hero oscuro con label "Research References"
+- Componente ReferenceCard con número, título, autores, journal, año, relevancia y tag
+- Iconos ExternalLink para DOIs (cuando no sean '#')
+- Todos los colores como variables COLORS
+- Responsive: max-w-5xl en secciones principales
+### Pendiente
+- Sustituir placeholders por referencias reales
+- Añadir DOIs reales cuando estén confirmadas
+
+---
+
+## [/contact — contenido añadido] — 2026-05-27
+### Añadido
+- Sección "Who should reach out" con 3 perfiles (Neurologists & Clinicians, Investors, Partners & Researchers)
+- FAQ rápido con 3 preguntas frecuentes
+- Sección de ubicación con badge Harvard HSIL Top 20
+- Iconos: Stethoscope, TrendingUp, FlaskConical de lucide-react
+### Modificado
+- Orden de secciones: Hero → Who should reach out → FAQ → Ubicación → Opciones de contacto
+
+---
+
+## [Solution — scroll narrativo con líneas curvas] — 2026-05-26
+### Modificado
+- Cards aparecen una a una al hacer scroll
+- Líneas curvas SVG animadas entre cards (pathLength 0→1)
+- Puntos al final de cada línea
+- Puntos de la lista aparecen con delay secuencial
+- Offsets verticales para romper la alineación
+- Backup en SolutionV3Backup.tsx
+### Instalado
+- react-intersection-observer (ya estaba instalado)
+
+---
+
 ## [Navbar — mega menú reposicionado] — 2026-05-26
 ### Modificado
 - Panel desplegable centrado respecto al item del navbar usando `left: 50%` y `transform: translateX(-50%)`

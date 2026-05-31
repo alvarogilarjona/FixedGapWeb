@@ -523,13 +523,13 @@ export default function Pipeline() {
       <div className="max-w-6xl mx-auto h-full flex flex-col justify-center relative">
 
         {/* Header — siempre visible */}
-        <div className="mb-3">
+        <div className="mb-3 pt-16">
           <span style={{ color: COLORS.label }}
-            className="text-xs font-semibold tracking-widest uppercase">
+            className="text-sm font-semibold tracking-widest uppercase">
             How it works
           </span>
           <h2 style={{ color: COLORS.headline }}
-            className="text-4xl md:text-5xl font-bold mt-4 leading-tight max-w-2xl">
+            className="text-5xl md:text-6xl font-bold mt-4 leading-tight max-w-2xl">
             From webcam to clinical report.
           </h2>
         </div>
@@ -539,17 +539,17 @@ export default function Pipeline() {
           style={{ gridTemplateColumns: '1.4fr 1fr' }}>
 
           {/* Columna izquierda — pasos */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
                 animate={{
-                  opacity: activeStep === index ? 1 : activeStep > index ? 0.35 : 0.35,
+                  opacity: activeStep === index ? 1 : activeStep > index ? 0.55 : 0.55,
                   x: activeStep === index ? 0 : -8,
                 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
                 style={{
-                  padding: activeStep === index ? '24px 28px' : '16px 20px',
+                  padding: activeStep === index ? '24px 28px' : '20px 24px',
                   borderRadius: '12px',
                   cursor: 'pointer',
                   backgroundColor: activeStep === index ? COLORS.stepNumberBg : 'transparent',
@@ -575,20 +575,27 @@ export default function Pipeline() {
                       {step.number}
                     </div>
                   ) : (
-                    <span style={{
+                    <div style={{
+                      width: '56px',
+                      height: '56px',
+                      minWidth: '56px',
+                      borderRadius: '12px',
+                      backgroundColor: 'transparent',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       color: COLORS.body,
                       fontWeight: 700,
                       fontSize: '15px',
-                      minWidth: '32px',
                     }}>
                       {step.number}
-                    </span>
+                    </div>
                   )}
                   <div style={{ flex: 1 }}>
                     <h3 style={{
                       color: activeStep === index ? COLORS.stepActive : COLORS.stepInactive,
-                      fontWeight: activeStep === index ? 700 : 500,
-                      fontSize: activeStep === index ? '22px' : '17px',
+                      fontWeight: activeStep === index ? 700 : 600,
+                      fontSize: activeStep === index ? '22px' : '18px',
                     }}>
                       {step.title}
                     </h3>

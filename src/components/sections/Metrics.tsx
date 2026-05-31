@@ -44,13 +44,13 @@ export default function Metrics() {
 
         {/* Label */}
         <span style={{ color: COLORS.label }}
-          className="text-xs font-semibold tracking-widest uppercase">
+          className="text-sm font-semibold tracking-widest uppercase">
           By the numbers
         </span>
 
         {/* Headline */}
         <h2 style={{ color: COLORS.headline }}
-          className="text-4xl md:text-5xl font-bold mt-4 leading-tight max-w-2xl">
+          className="text-5xl md:text-6xl font-bold mt-4 leading-tight max-w-2xl">
           The scale of the problem.<br />
           The precision of the solution.
         </h2>

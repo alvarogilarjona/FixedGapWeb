@@ -46,12 +46,12 @@ export default function Problem() {
     <section id="problem" className="bg-white py-24 px-6">
       <div className="max-w-5xl mx-auto">
         {/* Label */}
-        <span className="text-xs font-semibold tracking-widest text-brand-blue uppercase">
+        <span className="text-sm font-semibold tracking-widest text-brand-blue uppercase">
           The Problem
         </span>
 
         {/* Headline */}
-        <h2 className="text-4xl md:text-5xl font-bold text-brand-navy max-w-3xl leading-tight mt-4">
+        <h2 className="text-5xl md:text-6xl font-bold text-brand-navy max-w-3xl leading-tight mt-4">
           Every day, stroke patients recover without anyone watching.
         </h2>
 

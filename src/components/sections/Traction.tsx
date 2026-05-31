@@ -29,13 +29,13 @@ export default function Traction() {
 
         {/* Label */}
         <span style={{ color: COLORS.label }}
-          className="text-xs font-semibold tracking-widest uppercase">
+          className="text-sm font-semibold tracking-widest uppercase">
           Traction
         </span>
 
         {/* Headline */}
         <h2 style={{ color: COLORS.headline }}
-          className="text-4xl md:text-5xl font-bold mt-4 leading-tight">
+          className="text-5xl md:text-6xl font-bold mt-4 leading-tight">
           Backed and supported by.
         </h2>
 

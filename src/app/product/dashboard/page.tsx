@@ -13,7 +13,7 @@ const COLORS = {
   heroAccent: '#1F4C9C',
   heroMuted: '#98A2B3',
   sectionBg: '#FFFFFF',
-  sectionAlt: '#F5F0E8',
+  sectionAlt: '#E8E8E8',
   label: '#1F4C9C',
   headline: '#1A1F3C',
   body: '#6B7689',
