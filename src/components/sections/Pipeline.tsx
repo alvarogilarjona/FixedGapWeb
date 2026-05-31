@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Camera, Cpu, Activity, LayoutDashboard, Send } from 'lucide-react'
+import HandKeypoints from '@/components/ui/HandKeypoints'
 
 // Hook de typing manual
 function useTyping(text: string, active: boolean, speed: number = 30) {
@@ -297,16 +298,14 @@ function SessionReportCard({
         )}
       </AnimatePresence>
 
-      {/* Step 0 — estado inicial vacío */}
+      {/* Step 0 — keypoints animados */}
       {activeStep === 0 && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="flex items-center justify-center h-48"
+          style={{ height: '300px' }}
         >
-          <p style={{ color: COLORS.metricLabel, fontSize: '13px' }}>
-            Waiting for session data...
-          </p>
+          <HandKeypoints />
         </motion.div>
       )}
 

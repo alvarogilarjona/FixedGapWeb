@@ -17,6 +17,7 @@ const partners = [
   { name: 'Universidad Complutense de Madrid', logo: '/logos/Universidad_Complutense.png' },
   { name: 'Comunidad de Madrid', logo: '/logos/ComunidadMadrid.png' },
   { name: 'Bosch', logo: '/logos/BoschDefinitivo.png' },
+  { name: 'Cátedra Bosch', logo: '/logos/catedraBosch.jpeg' },
 ]
 
 // Duplicar el array para el loop infinito

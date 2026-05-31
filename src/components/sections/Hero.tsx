@@ -6,12 +6,11 @@ export default function Hero() {
       id="hero"
       className="relative h-screen flex items-center justify-center text-center overflow-hidden"
     >
-      {/* Video Background Placeholder */}
+      {/* Video Background */}
       <div className="absolute inset-0 bg-brand-navy">
-        {/* VIDEO PLACEHOLDER — sustituir por vídeo real generado con IA */}
-        {/* <video autoPlay muted loop playsInline className="w-full h-full object-cover">
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        </video> */}
+        <video autoPlay muted loop playsInline className="w-full h-full object-cover">
+          <source src="/videos/videoNuevo.mp4" type="video/mp4" />
+        </video>
 
         {/* Overlay oscuro encima del vídeo para legibilidad del texto */}
         <div className="absolute inset-0 bg-black opacity-50" />

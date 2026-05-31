@@ -5,6 +5,51 @@ Actualizar este fichero después de cada cambio importante.
 
 ---
 
+## [Hero — video de fondo añadido] — 2026-05-31
+### Añadido
+- Video de fondo en el Hero principal de la landing
+- Video en /public/videos/videoNuevo.mp4
+- Autoplay, muted, loop y responsive
+- Overlay oscuro (opacity 50%) para legibilidad del texto
+
+---
+
+## [Traction — logo Cátedra Bosch añadido] — 2026-05-31
+### Añadido
+- Logo Cátedra Bosch al carrusel de partners
+- Archivo: /logos/catedraBosch.jpeg
+
+---
+
+## [/product/experience — tres juegos] — 2026-05-31
+### Modificado
+- Reemplazado contenido de pesca por los 3 juegos reales
+- The Water Jug — pronación/supinación de muñeca
+- The Pill Organizer — pinch y motor fino
+- The Light Switches — asimetría bilateral
+- Zigzag layout con texto alternando izquierda/derecha
+- Biomarker capturado + por qué importa por cada juego
+- Placeholders para imágenes de los juegos
+- Hero: "Three games. One clinical session."
+- CTA final a /contact
+### Pendiente
+- Añadir capturas reales de cada juego cuando estén disponibles
+
+---
+
+## [Pipeline Step 1 — imagen keypoints] — 2026-05-31
+### Modificado
+- SVG animado reemplazado por foto real de mano con keypoints
+- Imagen en /public/hand-keypoints.png
+- Texto parpadeante "● 21 landmarks detected"
+- Componente independiente en /components/ui/HandKeypoints.tsx
+- Backup en PipelineBackup.tsx para revertir fácilmente
+### Para revertir
+- `cp src/components/sections/PipelineBackup.tsx src/components/sections/Pipeline.tsx`
+- Borrar `src/components/ui/HandKeypoints.tsx`
+
+---
+
 ## [Loading screen] — 2026-05-31
 ### Añadido
 - Pantalla de carga con animación "Fixed Gap se cierra"
