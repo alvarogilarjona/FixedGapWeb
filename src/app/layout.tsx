@@ -34,6 +34,14 @@ export const metadata: Metadata = {
     description: "AI-powered rehabilitation platform for stroke recovery. Computer vision biomechanics analysis for neurological rehabilitation.",
     images: ['/og-image.jpg'], // Misma imagen para Twitter
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.jpeg', type: 'image/jpeg' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.jpeg',
+  },
 };
 
 export default function RootLayout({
