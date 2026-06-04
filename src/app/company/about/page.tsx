@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
@@ -121,6 +124,55 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+
+          {/* Agradecimiento Juan Antonio — Bosch */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            style={{
+              backgroundColor: '#F7F9FC',
+              border: '1px solid #E8E0D0',
+              borderRadius: '20px',
+              padding: '40px 48px',
+              display: 'flex',
+              gap: '32px',
+              alignItems: 'center',
+              margin: '48px 0',
+            }}
+          >
+            {/* Foto Juan Antonio */}
+            <div style={{
+              width: '96px',
+              height: '96px',
+              borderRadius: '50%',
+              overflow: 'hidden',
+              flexShrink: 0,
+              border: '3px solid #E8E0D0',
+            }}>
+              <img
+                src="/sponsors/JuanAntonioBosch.jpg"
+                alt="Juan Antonio — Bosch"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                onError={e => { e.currentTarget.style.display = 'none' }}
+              />
+            </div>
+
+            {/* Texto */}
+            <div>
+              <p style={{ color: '#1F4C9C', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
+                Special thanks
+              </p>
+              <p style={{ color: '#1A1F3C', fontSize: '20px', fontWeight: 700, marginBottom: '10px' }}>
+                Juan Antonio — Bosch
+              </p>
+              <p style={{ color: '#6B7689', fontSize: '16px', lineHeight: 1.65 }}>
+                We want to extend our deepest gratitude to <strong>Juan Antonio</strong> and <strong>Bosch</strong> for their invaluable sponsorship and unwavering support during the hackathon. Your belief in our vision helped make this journey possible.
+              </p>
+            </div>
+          </motion.div>
+
         </div>
       </section>
 

@@ -4,6 +4,18 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
 
+const srOnly: React.CSSProperties = {
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  padding: 0,
+  margin: '-1px',
+  overflow: 'hidden',
+  clip: 'rect(0,0,0,0)',
+  whiteSpace: 'nowrap',
+  border: 0,
+}
+
 const COLORS = {
   bg: '#FFFFFF',
   bgAlt: '#0A0F1E',
@@ -32,14 +44,16 @@ const COLORS = {
 }
 
 const metrics = [
-  'Pinch precision',
-  'Finger extension',
-  'Hand opening speed',
-  'Wrist ROM',
-  'Palm velocity',
-  'Finger individuation',
-  'Tremor',
-  'Inter-repetition variability',
+  'Pinch Precision (M1)',
+  'Reach Precision',
+  'Endpoint Overshoot',
+  'Movement Smoothness — SPARC (M11)',
+  'Index Extension Accuracy',
+  'Hand Opening Speed (M2)',
+  'Rotation Range of Motion (M4)',
+  'Pronation/Supination Speed',
+  'Inter-hand Asymmetry Index',
+  'Recovery Gap',
 ]
 
 const stakeholders = [
@@ -79,6 +93,11 @@ export default function Solution() {
       <section style={{ backgroundColor: COLORS.bg }} className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
 
+          {/* SEO Headings - invisible */}
+          <h2 style={srOnly}>Computer Vision Rehabilitation — No Hardware Required</h2>
+          <h3 style={srOnly}>Hand tracking with 21 landmarks in real time</h3>
+          <h3 style={srOnly}>Clinical-grade movement analysis through any webcam</h3>
+
           <span style={{ color: COLORS.label }}
             className="text-xs font-semibold tracking-widest uppercase">
             What we capture
@@ -109,9 +128,9 @@ export default function Solution() {
               </h3>
               <p style={{ color: COLORS.body }}
                 className="text-base leading-relaxed mb-8">
-                MediaPipe detects every joint in real time. We measure how well
-                patients open their hand, pinch objects, and control finger movements —
-                the same things a physio checks in clinic, captured automatically every session.
+                MediaPipe detects every joint in real time across three clinical games —
+                pinch, finger extension, and wrist rotation. Each movement maps directly
+                to an item on the Fugl-Meyer Assessment scale, captured automatically every session.
               </p>
 
               {/* Grid de métricas */}

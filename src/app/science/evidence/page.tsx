@@ -55,6 +55,18 @@ const stats = [
     impact: 'Even among patients who start rehabilitation, dropout is the norm, not the exception.',
   },
   {
+    number: '1,015',
+    label: 'stroke patients with sequelae per neurologist in stroke units in Spain',
+    source: 'SEN (Sociedad Española de Neurología), October 2025 — calculated from 330,000 survivors ÷ ~325 neurologists in stroke units',
+    impact: 'Each neurologist in a Spanish stroke unit is responsible for over a thousand patients. Continuous remote monitoring is not optional — it is the only way to scale.',
+  },
+  {
+    number: '3,367',
+    label: 'stroke patients per stroke neurologist worldwide',
+    source: 'World Federation of Neurology Survey — calculated from 101M stroke survivors ÷ ~30,000 dedicated stroke neurologists globally',
+    impact: 'In low-income countries the ratio reaches 4,000,000 patients per neurological professional. The workforce shortage makes remote monitoring a structural necessity, not a product feature.',
+  },
+  {
     number: '5.5M',
     label: 'deaths from stroke every year worldwide — the second leading cause of death globally',
     source: 'GBD 2019 Stroke Collaborators, The Lancet Neurology, 2021',

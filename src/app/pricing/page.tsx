@@ -239,7 +239,7 @@ export default function PricingPage() {
               <div className="flex items-end gap-1 mb-2">
                 <span style={{ color: COLORS.pricingMuted, fontSize: '20px' }}>€</span>
                 <span style={{ color: COLORS.pricingText, fontSize: '56px', fontWeight: 800, lineHeight: 1 }}>
-                  49-99
+                  30-50
                 </span>
                 <span style={{ color: COLORS.pricingMuted, fontSize: '14px', marginBottom: '8px' }}>
                   /month

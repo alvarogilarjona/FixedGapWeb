@@ -27,6 +27,7 @@
 - [x] Página /company/about
 - [x] Página /science/references
 - [x] Página /science/evidence
+- [x] Página /science/validation
 - [x] Página /pricing
 - [x] Página /contact
 - [ ] Deploy a fixedgap.com

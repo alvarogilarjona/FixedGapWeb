@@ -1,6 +1,7 @@
 'use client'
 
-import { Mail, Video, Stethoscope, TrendingUp, FlaskConical } from 'lucide-react'
+import { useState } from 'react'
+import { Stethoscope, TrendingUp, FlaskConical, MoveRight } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
@@ -12,13 +13,12 @@ const COLORS = {
   sectionBg: '#FFFFFF',
   headline: '#1A1F3C',
   body: '#6B7689',
-  cardBg: '#F7F9FC',
-  cardBorder: '#E8E0D0',
-  cardTitle: '#1A1F3C',
-  cardBody: '#6B7689',
-  iconBg: '#EAF0FA',
-  iconColor: '#1F4C9C',
-  emailColor: '#1F4C9C',
+  formBg: '#141B2D',
+  formBorder: '#1E2A40',
+  formBorderFocus: '#1F4C9C',
+  labelColor: '#98A2B3',
+  inputText: '#FFFFFF',
+  inputPlaceholder: '#6B7689',
   btnBg: '#1F4C9C',
   btnText: '#FFFFFF',
   profileBg: '#F7F9FC',
@@ -78,6 +78,20 @@ const faqs = [
 ]
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Por ahora solo muestra confirmación
+    setSubmitted(true)
+  }
+
   return (
     <main>
       <Navbar />
@@ -102,105 +116,149 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* DOS OPCIONES */}
-      <section style={{ backgroundColor: COLORS.sectionBg }}
+      {/* FORMULARIO */}
+      <section style={{ backgroundColor: COLORS.locationBg }}
         className="py-24 px-6">
         <div className="max-w-3xl mx-auto">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {!submitted ? (
+            <form onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-            {/* Email */}
-            <div style={{
-              backgroundColor: COLORS.cardBg,
-              border: `1px solid ${COLORS.cardBorder}`,
-              borderRadius: '16px',
-              padding: '36px 28px',
-            }} className="flex flex-col gap-6">
-
-              <div style={{
-                backgroundColor: COLORS.iconBg,
-                width: '48px',
-                height: '48px',
-                borderRadius: '12px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <Mail size={20} style={{ color: COLORS.iconColor }} />
+              {/* Nombre */}
+              <div className="flex flex-col gap-2">
+                <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={e => setFormData({ ...formData, name: e.target.value })}
+                  style={{
+                    backgroundColor: COLORS.formBg,
+                    border: `1px solid ${COLORS.formBorder}`,
+                    borderRadius: '10px',
+                    padding: '12px 16px',
+                    color: COLORS.inputText,
+                    fontSize: '14px',
+                    outline: 'none',
+                  }}
+                  onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
+                  onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
+                />
               </div>
 
-              <div>
-                <h2 style={{ color: COLORS.cardTitle }}
-                  className="text-xl font-bold">
-                  Send us an email
-                </h2>
-                <p style={{ color: COLORS.cardBody }}
-                  className="text-sm mt-2 leading-relaxed">
-                  For general enquiries, partnerships, clinical collaborations, or press.
-                </p>
+              {/* Email */}
+              <div className="flex flex-col gap-2">
+                <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={e => setFormData({ ...formData, email: e.target.value })}
+                  style={{
+                    backgroundColor: COLORS.formBg,
+                    border: `1px solid ${COLORS.formBorder}`,
+                    borderRadius: '10px',
+                    padding: '12px 16px',
+                    color: COLORS.inputText,
+                    fontSize: '14px',
+                    outline: 'none',
+                  }}
+                  onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
+                  onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
+                />
               </div>
 
-              <a href="mailto:hello@fixedgap.com"
-                style={{ color: COLORS.emailColor }}
-                className="text-base font-semibold hover:opacity-70 transition-opacity mt-auto">
-                hello@fixedgap.com →
-              </a>
+              {/* Teléfono */}
+              <div className="flex flex-col gap-2">
+                <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
+                  Phone
+                </label>
+                <input
+                  type="tel"
+                  placeholder="+34 600 000 000"
+                  value={formData.phone}
+                  onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                  style={{
+                    backgroundColor: COLORS.formBg,
+                    border: `1px solid ${COLORS.formBorder}`,
+                    borderRadius: '10px',
+                    padding: '12px 16px',
+                    color: COLORS.inputText,
+                    fontSize: '14px',
+                    outline: 'none',
+                  }}
+                  onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
+                  onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
+                />
+              </div>
 
+              {/* Mensaje */}
+              <div className="flex flex-col gap-2 md:col-span-2">
+                <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
+                  Message
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder="Tell us who you are and what you are looking for..."
+                  value={formData.message}
+                  onChange={e => setFormData({ ...formData, message: e.target.value })}
+                  style={{
+                    backgroundColor: COLORS.formBg,
+                    border: `1px solid ${COLORS.formBorder}`,
+                    borderRadius: '10px',
+                    padding: '12px 16px',
+                    color: COLORS.inputText,
+                    fontSize: '14px',
+                    outline: 'none',
+                    resize: 'vertical',
+                  }}
+                  onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
+                  onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
+                />
+              </div>
+
+              {/* Submit */}
+              <div className="md:col-span-2">
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: COLORS.btnBg,
+                    color: COLORS.btnText,
+                    padding: '14px 32px',
+                    borderRadius: '10px',
+                    fontSize: '15px',
+                    fontWeight: 600,
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                  }}
+                  className="hover:opacity-90 transition-opacity"
+                >
+                  Send message <MoveRight size={16} />
+                </button>
+              </div>
+
+            </form>
+          ) : (
+            /* Confirmación */
+            <div style={{ maxWidth: '480px' }}>
+              <p style={{ color: '#1F7A4D', fontSize: '16px', fontWeight: 700, marginBottom: '8px' }}>
+                ✓ Message sent
+              </p>
+              <p style={{ color: COLORS.heroMuted, fontSize: '14px', lineHeight: 1.7 }}>
+                Thanks for reaching out. We will get back to you as soon as possible.
+              </p>
             </div>
-
-            {/* Book a call */}
-            <div style={{
-              backgroundColor: COLORS.cardBg,
-              border: `1px solid ${COLORS.cardBorder}`,
-              borderRadius: '16px',
-              padding: '36px 28px',
-            }} className="flex flex-col gap-6">
-
-              <div style={{
-                backgroundColor: COLORS.iconBg,
-                width: '48px',
-                height: '48px',
-                borderRadius: '12px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <Video size={20} style={{ color: COLORS.iconColor }} />
-              </div>
-
-              <div>
-                <h2 style={{ color: COLORS.cardTitle }}
-                  className="text-xl font-bold">
-                  Book a call
-                </h2>
-                <p style={{ color: COLORS.cardBody }}
-                  className="text-sm mt-2 leading-relaxed">
-                  Schedule a 30-minute Zoom call with the team. Available for investors, clinicians, and partners.
-                </p>
-              </div>
-
-              <a href="https://cal.com/fixedgap"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  backgroundColor: COLORS.btnBg,
-                  color: COLORS.btnText,
-                  borderRadius: '8px',
-                  padding: '12px 20px',
-                  fontSize: '14px',
-                  fontWeight: 600,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  marginTop: 'auto',
-                }}
-                className="hover:opacity-90 transition-opacity">
-                Book a 30-min call →
-              </a>
-
-            </div>
-
-          </div>
+          )}
 
         </div>
       </section>

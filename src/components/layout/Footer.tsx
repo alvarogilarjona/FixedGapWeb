@@ -33,12 +33,6 @@ export default function Footer() {
               Daily biomarkers from home.<br />
               Post-stroke rehabilitation, reimagined.
             </p>
-            <a href="mailto:hello@fixedgap.com"
-              style={{ color: COLORS.email }}
-              className="flex items-center gap-2 text-sm font-medium mt-6 hover:opacity-80 transition-opacity">
-              <Mail size={14} />
-              hello@fixedgap.com
-            </a>
           </div>
 
           {/* Columna Product */}

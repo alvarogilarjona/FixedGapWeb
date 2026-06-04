@@ -5,6 +5,18 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Camera, Cpu, Activity, LayoutDashboard, Send } from 'lucide-react'
 import HandKeypoints from '@/components/ui/HandKeypoints'
 
+const srOnly: React.CSSProperties = {
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  padding: 0,
+  margin: '-1px',
+  overflow: 'hidden',
+  clip: 'rect(0,0,0,0)',
+  whiteSpace: 'nowrap',
+  border: 0,
+}
+
 // Hook de typing manual
 function useTyping(text: string, active: boolean, speed: number = 30) {
   const [displayed, setDisplayed] = useState('')
@@ -76,7 +88,7 @@ const steps = [
     number: '02',
     icon: Cpu,
     title: 'Computer vision processes movement',
-    body: 'MediaPipe extracts pinch precision, finger individuation, and hand opening speed frame by frame.'
+    body: 'MediaPipe extracts pinch precision, reach accuracy, wrist rotation range, and movement smoothness — across three clinical games designed around FMA-UE items.'
   },
   {
     number: '03',
@@ -88,7 +100,7 @@ const steps = [
     number: '04',
     icon: LayoutDashboard,
     title: 'Clinical Recovery Index generated',
-    body: 'A weighted composite score summarises hand performance — calibrated against the Fugl-Meyer Assessment scale.'
+    body: 'A weighted composite score summarises hand performance across all three games — calibrated against the Fugl-Meyer Assessment scale. Inter-hand asymmetry is computed automatically.'
   },
   {
     number: '05',
@@ -517,9 +529,15 @@ export default function Pipeline() {
         height: '100vh',
         overflow: 'hidden',
       }}
-      className="px-6"
+      className="px-4 lg:px-6"
     >
       <div className="max-w-6xl mx-auto h-full flex flex-col justify-center relative">
+
+        {/* SEO Headings - invisible */}
+        <h2 style={srOnly}>How Post-Stroke Rehabilitation Monitoring Works</h2>
+        <h3 style={srOnly}>Camera captures hand movement in real time</h3>
+        <h3 style={srOnly}>ML models compute clinical biomarkers</h3>
+        <h3 style={srOnly}>Neurologist receives the session report automatically</h3>
 
         {/* Header — siempre visible */}
         <div className="mb-3 pt-16">
@@ -528,17 +546,16 @@ export default function Pipeline() {
             How it works
           </span>
           <h2 style={{ color: COLORS.headline }}
-            className="text-5xl md:text-6xl font-bold mt-4 leading-tight max-w-2xl">
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 leading-tight max-w-2xl">
             From webcam to clinical report.
           </h2>
         </div>
 
         {/* Layout dos columnas — ocupa el resto de la altura */}
-        <div className="grid grid-cols-1 lg:grid-cols-1 gap-16 items-center flex-1"
-          style={{ gridTemplateColumns: '1.4fr 1fr' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start flex-1 lg:[grid-template-columns:1.4fr_1fr]">
 
           {/* Columna izquierda — pasos */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 w-full">
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -590,11 +607,12 @@ export default function Pipeline() {
                       {step.number}
                     </div>
                   )}
-                  <div style={{ flex: 1 }}>
+                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <h3 style={{
                       color: activeStep === index ? COLORS.stepActive : COLORS.stepInactive,
                       fontWeight: activeStep === index ? 700 : 600,
-                      fontSize: activeStep === index ? '22px' : '18px',
+                      fontSize: activeStep === index ? 'clamp(16px, 4vw, 22px)' : '18px',
+                      margin: 0,
                     }}>
                       {step.title}
                     </h3>
@@ -603,7 +621,7 @@ export default function Pipeline() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         transition={{ duration: 0.3 }}
-                        style={{ color: COLORS.body, fontSize: '15px', marginTop: '8px', lineHeight: 1.7 }}
+                        style={{ color: COLORS.body, fontSize: 'clamp(13px, 3vw, 15px)', marginTop: '8px', lineHeight: 1.7 }}
                       >
                         {step.body}
                       </motion.p>
@@ -615,12 +633,14 @@ export default function Pipeline() {
           </div>
 
           {/* Columna derecha — informe animado */}
-          <SessionReportCard
-            activeStep={activeStep}
-            COLORS={COLORS}
-            reportSent={reportSent}
-            showNotification={showNotification}
-          />
+          <div className="hidden lg:block lg:sticky lg:top-24">
+            <SessionReportCard
+              activeStep={activeStep}
+              COLORS={COLORS}
+              reportSent={reportSent}
+              showNotification={showNotification}
+            />
+          </div>
 
         </div>
 
@@ -631,9 +651,9 @@ export default function Pipeline() {
               key={index}
               onClick={() => setActiveStep(index)}
               style={{
-                width: activeStep === index ? '24px' : '6px',
-                height: '6px',
-                borderRadius: '3px',
+                width: activeStep === index ? '20px' : '8px',
+                height: '8px',
+                borderRadius: '4px',
                 backgroundColor: activeStep === index ? COLORS.stepNumber : COLORS.stepBorder,
                 transition: 'all 0.3s ease',
                 cursor: 'pointer',

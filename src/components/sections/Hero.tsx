@@ -19,12 +19,27 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 px-6 max-w-5xl mx-auto">
 
-        {/* Headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-          <span className="text-white">Your patients recover every day.</span>
+        {/* SEO H1 - invisible visually but exists for Google */}
+        <h1 style={{
+          position: 'absolute',
+          width: '1px',
+          height: '1px',
+          padding: 0,
+          margin: '-1px',
+          overflow: 'hidden',
+          clip: 'rect(0,0,0,0)',
+          whiteSpace: 'nowrap',
+          border: 0,
+        }}>
+          Post-Stroke Rehabilitation Monitoring. Zero Hardware.
+        </h1>
+
+        {/* Emotional Impact H2 - visible, main visual element */}
+        <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-white">
+          Your patients recover every day.
           <br />
           <span className="text-brand-blue">You find out weeks later.</span>
-        </h1>
+        </h2>
 
         {/* Subline */}
         <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-8">

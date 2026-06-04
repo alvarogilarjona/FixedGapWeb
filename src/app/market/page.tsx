@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { Globe3D, GlobeMarker } from '@/components/ui/3d-globe'
@@ -60,6 +61,28 @@ const markers: GlobeMarker[] = [
     src: 'https://flagcdn.com/w80/fr.png',
     label: 'Paris',
     info: 'EU Expansion',
+  },
+]
+
+// Ratios pacientes/neurólogo
+const ratios = [
+  {
+    number: '1,015',
+    label: 'stroke patients per neurologist in Spanish stroke units',
+    context: 'Spain — SEN, October 2025',
+    color: COLORS.tamColor,
+  },
+  {
+    number: '3,367',
+    label: 'stroke patients per dedicated stroke neurologist worldwide',
+    context: 'Global — World Federation of Neurology',
+    color: '#98A2B3',
+  },
+  {
+    number: '4,000,000',
+    label: 'patients per neurological professional in low-income countries',
+    context: 'WHO Atlas 2017 — worst case ratio',
+    color: '#A8261C',
   },
 ]
 
@@ -172,6 +195,65 @@ export default function MarketPage() {
             autoRotateSpeed: 0.4,
           }}
         />
+      </section>
+
+      {/* SECCIÓN RATIOS — THE WORKFORCE GAP */}
+      <section style={{ backgroundColor: '#0A0F1E' }} className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+
+          <span style={{ color: COLORS.label }}
+            className="text-xs font-semibold tracking-widest uppercase">
+            The workforce gap
+          </span>
+
+          <h2 style={{ color: '#FFFFFF' }}
+            className="text-3xl md:text-4xl font-bold mt-4 leading-tight max-w-2xl">
+            There are not enough neurologists.<br />
+            <span style={{ color: COLORS.label }}>There never will be.</span>
+          </h2>
+
+          <p style={{ color: '#98A2B3' }}
+            className="text-lg mt-4 max-w-2xl leading-relaxed">
+            The stroke rehabilitation workforce shortage is structural and permanent.
+            Remote monitoring is not a product feature — it is the only scalable solution.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            {ratios.map((ratio, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                style={{
+                  backgroundColor: '#141B2D',
+                  border: `1px solid #1E2A40`,
+                  borderTop: `3px solid ${ratio.color}`,
+                  borderRadius: '16px',
+                  padding: '28px 24px',
+                }}
+              >
+                <p style={{
+                  color: ratio.color,
+                  fontSize: 'clamp(2rem, 4vw, 3rem)',
+                  fontWeight: 800,
+                  lineHeight: 1,
+                  letterSpacing: '-0.03em',
+                }}>
+                  {ratio.number}
+                </p>
+                <p style={{ color: '#FFFFFF', fontSize: '14px', fontWeight: 600, marginTop: '12px', lineHeight: 1.4 }}>
+                  {ratio.label}
+                </p>
+                <p style={{ color: '#6B7689', fontSize: '12px', marginTop: '8px' }}>
+                  {ratio.context}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
       </section>
 
       {/* TAM / SAM / SOM */}

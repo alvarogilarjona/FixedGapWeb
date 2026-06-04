@@ -24,104 +24,131 @@ const COLORS = {
   metricBody: '#6B7689',
 }
 
+interface Metric {
+  name: string
+  subtitle: string
+  description: string
+  insight: string
+  priority?: string
+}
+
 const categories = [
   {
-    id: 'kinematics',
-    label: 'Kinematics',
-    subtitle: 'Quality of movement',
+    id: 'pastillas',
+    label: 'Pill Organizer',
+    subtitle: 'Pinch & fine motor control',
     metrics: [
       {
-        name: 'Movement Smoothness',
-        subtitle: 'SPARC / Jerk Score',
-        description: 'Measures how fluid or jerky a hand movement is. A healthy, well-controlled movement is smooth; a neurologically impaired one is fragmented and stuttering.',
-        insight: 'Single most sensitive marker of neurological motor recovery. Directly correlates with Fugl-Meyer Assessment scores.'
+        name: 'Pinch Precision',
+        subtitle: 'M1 — pinch_precision',
+        description: 'Normalised distance between thumb (L4) and index finger (L8) relative to palm width. Captures the accuracy and consistency of the pinch gesture.',
+        insight: 'Core marker of distal hand function after stroke. Directly maps to the FMA-UE pinch item.',
+        priority: 'CORE',
       },
       {
-        name: 'Peak & Mean Movement Velocity',
-        subtitle: 'Speed of hand and finger movements',
-        description: 'Speed measured both as the maximum speed reached and the average speed throughout the movement. Velocity drops sharply after stroke and recovers in a predictable pattern.',
-        insight: 'Direct, intuitive progress metric. Separates motor impairment from cognitive and effort issues.'
+        name: 'Reach Precision',
+        subtitle: 'reach_precision',
+        description: 'Distance between the endpoint of the reach movement and the target, plus transit time. Measures visuomotor coordination and spatial accuracy.',
+        insight: 'Captures the integration of vision and hand movement — one of the first functions to degrade after stroke.',
+        priority: 'CORE',
       },
       {
-        name: 'Range of Motion',
-        subtitle: 'ROM — Angular amplitude',
-        description: 'The angular or linear amplitude of finger and wrist movement — how fully the patient opens, closes, flexes, or extends.',
-        insight: 'Quantifies severity of stiffness and spasticity. Intuitive for patients.'
+        name: 'Endpoint Overshoot',
+        subtitle: 'endpoint_overshoot',
+        description: 'Distance between the stopping position and the intended target. Measures dysmetria — the tendency to overshoot or undershoot a target.',
+        insight: 'Dysmetria is a hallmark of cerebellar and motor cortex damage. Tracking it session by session reveals recovery of motor planning.',
+        priority: 'CORE',
+      },
+      {
+        name: 'Movement Smoothness — SPARC',
+        subtitle: 'M11 — Spectral Arc Length',
+        description: 'Spectral Arc Length of the velocity profile. Measures how fluid or jerky the movement is — healthy movement is smooth, neurologically impaired movement is fragmented.',
+        insight: 'Single most sensitive kinematic marker of neurological motor recovery. Correlates directly with FMA-UE scores.',
+        priority: 'CORE',
       },
     ]
   },
   {
-    id: 'fine-motor',
-    label: 'Fine Motor Control',
-    subtitle: 'Dexterity and precision',
+    id: 'lampara',
+    label: 'Light Switch',
+    subtitle: 'Finger extension & bilateral asymmetry',
     metrics: [
       {
-        name: 'Finger Individuation',
-        subtitle: 'Independent finger control',
-        description: 'The ability to move each finger independently without involuntarily activating the others. After stroke, fingers often move as a mass.',
-        insight: 'One of the most specific markers of cortical recovery. Correlates with ability to perform daily tasks.'
+        name: 'Index Finger Extension Accuracy',
+        subtitle: 'index_extension_acc',
+        description: 'Extension of the index finger toward the target — angle at the metacarpophalangeal joint. Measures isolated finger extension, a key recovery milestone after stroke.',
+        insight: 'Loss of isolated finger extension is one of the most common and disabling consequences of stroke. Its recovery signals cortical reorganisation.',
+        priority: 'CORE',
       },
       {
-        name: 'Accuracy / Task Precision',
-        subtitle: 'Spatial deviation from target',
-        description: 'How closely the patient movements match the intended target in the game — spatial deviation, overshoot, undershoot.',
-        insight: 'Measures visuomotor coordination. Detects neglect or attention issues.'
+        name: 'Hand Opening Speed',
+        subtitle: 'M2',
+        description: 'Speed of separation of all 5 fingers relative to the palm centroid. Measures how quickly the patient can open their hand voluntarily.',
+        insight: 'Hand opening speed drops sharply after stroke and recovers in a predictable pattern — making it a reliable longitudinal marker.',
+        priority: 'CORE',
       },
       {
-        name: 'Reaction Time',
-        subtitle: 'Neural processing speed',
-        description: 'The delay between when the game presents a stimulus and when the patient begins moving. Measures central nervous system processing speed.',
-        insight: 'Detects slowed neural transmission common after stroke. Sensitive to fatigue and cognitive load.'
+        name: 'Reach Precision',
+        subtitle: 'reach_precision',
+        description: 'Distance between endpoint and target plus transit time during the reach toward the switch.',
+        insight: 'Same metric as the pill organizer — measuring it across different tasks reveals whether the deficit is task-specific or generalised.',
+        priority: 'CORE',
+      },
+      {
+        name: 'Movement Smoothness — SPARC',
+        subtitle: 'M11 — Spectral Arc Length',
+        description: 'Smoothness of the reach gesture toward the light switch. Fragmented movement indicates impaired motor control.',
+        insight: 'Gold standard smoothness metric. Validated in a systematic review of 32 kinematic metrics.',
+        priority: 'CORE',
       },
     ]
   },
   {
-    id: 'tone-tremor',
-    label: 'Tone & Tremor',
-    subtitle: 'Rigidity and involuntary movement',
+    id: 'jarra',
+    label: 'Water Jug',
+    subtitle: 'Wrist rotation & pronation/supination',
     metrics: [
       {
-        name: 'Tremor',
-        subtitle: 'Frequency & amplitude',
-        description: 'Involuntary, rhythmic oscillations of the hand or fingers during intentional movement or at rest. Measured in Hz and mm.',
-        insight: 'Appearance of new resting tremor triggers immediate alert. Possible adverse effect or neurological change.'
+        name: 'Rotation Range of Motion',
+        subtitle: 'M4 — range_of_motion',
+        description: 'Maximum angle of wrist rotation, normalised by the patient\'s own baseline maximum. Measures how far the patient can rotate the wrist in a pouring motion.',
+        insight: 'Wrist rotation is among the first movements affected after stroke and among the last to recover. Daily tracking captures the recovery curve precisely.',
+        priority: 'CORE',
       },
       {
-        name: 'Inter-repetition Variability',
-        subtitle: 'Consistency between movements',
-        description: 'The inconsistency between one repetition of a movement and the next. A healthy motor system is highly repeatable.',
-        insight: 'Higher CV = worse central motor control. Decreasing CV over weeks = motor learning and cortical consolidation.'
+        name: 'Pronation/Supination Speed',
+        subtitle: 'pronosup_speed',
+        description: 'Mean angular velocity of the repeated rotation gesture. Measures how quickly the patient can pronate and supinate the forearm.',
+        insight: 'Speed of forearm rotation is a direct proxy for motor fluency and muscle coordination — key indicators of upper limb recovery.',
+        priority: 'CORE',
+      },
+      {
+        name: 'Movement Smoothness — SPARC',
+        subtitle: 'M11 — Spectral Arc Length',
+        description: 'Smoothness of the rotation velocity profile during the pouring movement.',
+        insight: 'Fragmented rotation — even with adequate range — indicates persisting motor control impairment.',
+        priority: 'CORE',
       },
     ]
   },
   {
-    id: 'endurance',
-    label: 'Endurance & Fatigue',
-    subtitle: 'Stamina and consistency',
+    id: 'derived',
+    label: 'Derived Metrics',
+    subtitle: 'Inter-hand asymmetry & recovery tracking',
     metrics: [
       {
-        name: 'Intra-session Fatigue Index',
-        subtitle: 'Performance drop within session',
-        description: 'The drop in motor performance from the beginning to the end of the 1-minute game session.',
-        insight: 'Reveals neuromuscular and central fatigue. Progressive improvement = better motor stamina.'
+        name: 'Inter-hand Asymmetry Index',
+        subtitle: 'asymmetry_index',
+        description: 'Ratio of the affected hand metric to the unaffected hand metric — for velocity, precision, and SPARC. Quantifies the performance gap between both hands.',
+        insight: 'Post-stroke motor impairment is almost always asymmetric. Tracking how the gap closes over time is one of the most clinically meaningful recovery indicators.',
+        priority: 'CORE',
       },
       {
-        name: 'Movement Execution Time',
-        subtitle: 'Time to complete each movement',
-        description: 'The total time taken to complete each individual movement from onset to completion.',
-        insight: 'Direct proxy for spasticity. Comparing to reaction time separates planning delays from execution delays.'
-      },
-      {
-        name: 'Task Completion Rate',
-        subtitle: 'Percentage of exercises completed',
-        description: 'The percentage of game exercises that the patient successfully completes within each session.',
-        insight: 'Most intuitive dashboard metric for the physician. Tracks functional recovery in real-world terms.'
-      },
-      {
-        name: 'Inter-session Adherence',
-        subtitle: 'Consistency across sessions',
-        description: 'Tracks whether the patient is playing regularly, how many days have passed, and day-to-day variability in performance.',
-        insight: 'Single strongest predictor of rehabilitation outcome. Identifies patients at risk of disengagement.'
+        name: 'Recovery Gap',
+        subtitle: 'recovery_gap',
+        description: 'Absolute difference between the unaffected and affected hand performance over time. Shows directly how much recovery has occurred session by session.',
+        insight: 'A single number that tells the neurologist how far the patient still has to go — and how fast they are getting there.',
+        priority: 'CORE',
       },
     ]
   },
@@ -149,8 +176,8 @@ export default function BiomarkersPage() {
           </h1>
           <p style={{ color: COLORS.heroBody }}
             className="text-lg mt-6 max-w-2xl leading-relaxed">
-            12 clinically validated metrics extracted from hand movement
-            through computer vision. No hardware required.
+            Core biomarkers extracted from hand movement through computer vision
+            across three game-based exercises. No hardware required.
           </p>
         </div>
       </section>
@@ -234,6 +261,20 @@ export default function BiomarkersPage() {
                         className="mt-1">
                         {metric.subtitle}
                       </p>
+                      {metric.priority === 'CORE' && (
+                        <span style={{
+                          backgroundColor: '#E8F3EC',
+                          color: '#1F7A4D',
+                          fontSize: '10px',
+                          fontWeight: 700,
+                          padding: '2px 8px',
+                          borderRadius: '999px',
+                          marginTop: '4px',
+                          display: 'inline-block',
+                        }}>
+                          MVP
+                        </span>
+                      )}
                       <p style={{ color: COLORS.metricBody }}
                         className="text-sm mt-3 leading-relaxed">
                         {metric.description}

@@ -44,22 +44,22 @@ const reportMetrics = [
   {
     icon: Activity,
     title: 'Clinical Recovery Index',
-    description: 'A single composite score summarising overall hand motor performance. Tracks session by session.'
+    description: 'Weighted composite score across the three games — pill organizer, light switch, and water jug — calibrated against the Fugl-Meyer Assessment Upper Extremity scale.'
   },
   {
     icon: Brain,
-    title: 'Movement Quality',
-    description: 'Smoothness, velocity, and range of motion captured every session. The most sensitive markers of neurological recovery.'
-  },
-  {
-    icon: Calendar,
-    title: 'Adherence Tracking',
-    description: 'How often the patient plays, when they last played, and whether engagement is dropping — before dropout occurs.'
+    title: 'Hand Kinematics',
+    description: 'Pinch precision, reach accuracy, endpoint overshoot, wrist rotation range, and movement smoothness (SPARC) — the core metrics from each game, tracked session by session.'
   },
   {
     icon: BarChart3,
-    title: 'Session Breakdown',
-    description: 'Every individual movement analysed. Reaction time, task completion rate, and inter-repetition variability per session.'
+    title: 'Inter-hand Asymmetry',
+    description: 'Asymmetry index and recovery gap between the affected and unaffected hand. Shows directly how much the performance gap is closing over time.'
+  },
+  {
+    icon: Calendar,
+    title: 'Adherence & Consistency',
+    description: 'Session frequency, days without playing, and performance variability over time. The single strongest predictor of rehabilitation outcome outside initial impairment severity.'
   },
 ]
 
@@ -128,7 +128,7 @@ export default function DashboardPage() {
 
       {/* WHAT THE NEUROLOGIST SEES */}
       <section style={{ backgroundColor: COLORS.sectionBg }} className="py-24 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
 
           <span style={{ color: COLORS.label }}
             className="text-xs font-semibold tracking-widest uppercase">
@@ -159,20 +159,17 @@ export default function DashboardPage() {
               </p>
             </div>
 
-            {/* Placeholder imagen */}
+            {/* Dashboard screenshot */}
             <div style={{
-              backgroundColor: COLORS.imagePlaceholderBg,
               borderRadius: '16px',
-              aspectRatio: '16/10',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              overflow: 'hidden',
               border: `1px solid ${COLORS.cardBorder}`,
             }}>
-              <p style={{ color: COLORS.imagePlaceholderText }}
-                className="text-sm font-medium">
-                [ Dashboard screenshot — coming soon ]
-              </p>
+              <img
+                src="/clinical/dashboard.png"
+                alt="Clinical Dashboard showing patient recovery metrics and biomarkers"
+                className="w-full h-auto"
+              />
             </div>
 
           </div>

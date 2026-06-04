@@ -4,6 +4,18 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
+const srOnly: React.CSSProperties = {
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  padding: 0,
+  margin: '-1px',
+  overflow: 'hidden',
+  clip: 'rect(0,0,0,0)',
+  whiteSpace: 'nowrap',
+  border: 0,
+}
+
 function useCountUp(target: number, duration: number = 2000, active: boolean) {
   const [count, setCount] = useState(0);
 
@@ -45,6 +57,11 @@ export default function Problem() {
   return (
     <section id="problem" className="bg-white py-24 px-6">
       <div className="max-w-5xl mx-auto">
+        {/* SEO Headings - invisible */}
+        <h2 style={srOnly}>Stroke Rehabilitation Is Failing Patients At Home</h2>
+        <h3 style={srOnly}>13 million strokes every year worldwide</h3>
+        <h3 style={srOnly}>Zero daily monitoring tools available at home</h3>
+
         {/* Label */}
         <span className="text-sm font-semibold tracking-widest text-brand-blue uppercase">
           The Problem

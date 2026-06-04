@@ -1,3 +1,15 @@
+const srOnly: React.CSSProperties = {
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  padding: 0,
+  margin: '-1px',
+  overflow: 'hidden',
+  clip: 'rect(0,0,0,0)',
+  whiteSpace: 'nowrap',
+  border: 0,
+}
+
 const COLORS = {
   bg: '#0A0F1E',
   label: '#6B7689',
@@ -41,6 +53,12 @@ export default function Metrics() {
   return (
     <section style={{ backgroundColor: COLORS.bg }} className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
+
+        {/* SEO Headings - invisible */}
+        <h2 style={srOnly}>The Scale of Post-Stroke Rehabilitation</h2>
+        <h3 style={srOnly}>13 million strokes every year worldwide</h3>
+        <h3 style={srOnly}>795000 new strokes per year in the United States</h3>
+        <h3 style={srOnly}>Zero hardware cost for post-stroke rehabilitation monitoring</h3>
 
         {/* Label */}
         <span style={{ color: COLORS.label }}

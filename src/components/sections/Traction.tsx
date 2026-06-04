@@ -1,5 +1,17 @@
 'use client'
 
+const srOnly: React.CSSProperties = {
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  padding: 0,
+  margin: '-1px',
+  overflow: 'hidden',
+  clip: 'rect(0,0,0,0)',
+  whiteSpace: 'nowrap',
+  border: 0,
+}
+
 const COLORS = {
   bg: '#FFFFFF',
   label: '#1F4C9C',
@@ -25,12 +37,19 @@ const allPartners = [...partners, ...partners, ...partners]
 
 export default function Traction() {
   return (
-    <section style={{ backgroundColor: COLORS.bg }} className="py-24 overflow-hidden">
+    <section style={{ backgroundColor: COLORS.bg }} className="py-12 md:py-24 overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 mb-12">
 
+        {/* SEO Heading - invisible */}
+        <h2 style={srOnly}>Backed by Harvard and Leading Healthcare Organizations</h2>
+
         {/* Label */}
-        <span style={{ color: COLORS.label }}
-          className="text-sm font-semibold tracking-widest uppercase">
+        <span style={{
+          color: COLORS.label,
+          fontSize: 'clamp(11px, 3vw, 13px)',
+          padding: '5px 12px',
+        }}
+          className="font-semibold tracking-widest uppercase">
           Traction
         </span>
 
@@ -77,11 +96,11 @@ export default function Traction() {
         {/* Track animado */}
         <div style={{
           display: 'flex',
-          gap: '64px',
+          gap: '40px',
           alignItems: 'center',
-          animation: 'scroll-logos 30s linear infinite',
+          animation: 'scroll-logos 20s linear infinite',
           width: 'max-content',
-          padding: '16px 48px',
+          padding: '8px 24px',
         }}>
           {allPartners.map((partner, index) => (
             <div
@@ -98,9 +117,9 @@ export default function Traction() {
                 src={partner.logo}
                 alt={partner.name}
                 style={{
-                  height: '36px',
+                  height: 'clamp(24px, 4vw, 36px)',
                   width: 'auto',
-                  maxWidth: '120px',
+                  maxWidth: '100px',
                   objectFit: 'contain',
                   opacity: 0.85,
                   transition: 'opacity 0.3s ease',

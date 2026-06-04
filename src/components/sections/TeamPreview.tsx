@@ -1,3 +1,15 @@
+const srOnly: React.CSSProperties = {
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  padding: 0,
+  margin: '-1px',
+  overflow: 'hidden',
+  clip: 'rect(0,0,0,0)',
+  whiteSpace: 'nowrap',
+  border: 0,
+}
+
 const COLORS = {
   bg: '#FFFFFF',
   label: '#1F4C9C',
@@ -13,6 +25,9 @@ export default function TeamPreview() {
   return (
     <section style={{ backgroundColor: COLORS.bg }} className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
+
+        {/* SEO Heading - invisible */}
+        <h2 style={srOnly}>The Team Behind FixedGap Post-Stroke Rehabilitation Platform</h2>
 
         {/* Label */}
         <span style={{ color: COLORS.label }}
