@@ -5,6 +5,213 @@ Actualizar este fichero después de cada cambio importante.
 
 ---
 
+## [/investors — importado del repo anterior] — 2026-06-04
+### Añadido
+- Página /investors copiada del repo mpchachi/fixedgap
+- Assets de /investors copiados a /public (frames, imágenes de equipo, sponsors)
+- Dependencia recharts instalada para los dashboards
+- Ruta fixedgap.com/investors se mantiene exactamente igual
+
+---
+
+## [Footer — email eliminado] — 2026-06-04
+### Modificado
+- Eliminado email hello@fixedgap.com del Footer
+- Email no existe, se eliminó el link y el icono Mail
+
+---
+
+## [/market — fix contraste ratio mundial] — 2026-06-04
+### Modificado
+- Color del segundo ratio (3,367 mundial) cambiado de #1A1F3C a #98A2B3
+- Mejor contraste sobre fondo oscuro (#141B2D)
+- Ahora se lee correctamente el número
+
+---
+
+## [Contact — formulario simple] — 2026-06-04
+### Modificado
+- Email y Cal.com reemplazados por formulario simple
+- Campos: nombre (requerido), email (requerido), teléfono (opcional), mensaje (opcional)
+- Confirmación visual "✓ Message sent" al enviar
+- Formulario en landing section (Contact.tsx) y página /contact
+- Fondo oscuro (#0A0F1E) con inputs oscuros (#141B2D)
+- Border focus azul brand (#1F4C9C)
+- Estado local con useState, sin backend (por ahora)
+
+---
+
+## [/market — ratios pacientes/neurólogo] — 2026-06-04
+### Añadido
+- Nueva sección "The workforce gap" entre el globo y TAM/SAM/SOM
+- 3 ratios en cards con fondo oscuro (#141B2D) y borde de color según severidad
+- España: 1,015 pacientes/neurólogo (azul brand #1F4C9C)
+- Mundial: 3,367 pacientes/neurólogo (gris oscuro #1A1F3C)
+- Países bajos ingresos: 4,000,000 pacientes/profesional (rojo #A8261C)
+- Headline: "There are not enough neurologists. There never will be."
+- Contexto: "workforce shortage is structural and permanent"
+- Animación Framer Motion con stagger
+
+---
+
+## [/science/evidence — ratios pacientes/neurólogo] — 2026-06-04
+### Añadido
+- Ratio España: 1,015 pacientes con secuelas por neurólogo en unidad de ictus
+- Ratio mundial: 3,367 pacientes por neurólogo de ictus
+- Fuentes: SEN (Sociedad Española de Neurología) October 2025, World Federation of Neurology Survey
+- Cálculos: España (330,000 ÷ 325), Mundial (101M ÷ 30,000)
+- Ambas stats añadidas antes de la última stat de 5.5M muertes
+- Total: 7 estadísticas (antes 5)
+
+---
+
+## [/product/dashboard — cards actualizadas] — 2026-06-04
+### Modificado
+- 4 cards de "What's in the report" completamente actualizadas
+- Card 1: CRI ahora menciona "three games" y "FMA-UE scale"
+- Card 2: "Movement Quality" → "Hand Kinematics" con métricas específicas (pinch, reach, overshoot, rotation, SPARC)
+- Card 3: "Session Breakdown" → "Inter-hand Asymmetry" con asymmetry index y recovery gap
+- Card 4: "Adherence Tracking" → "Adherence & Consistency" con contexto clínico más específico
+- Todas las cards ahora reflejan las métricas reales del catálogo
+
+---
+
+## [Pipeline — textos actualizados] — 2026-06-04
+### Modificado
+- Step 2: métricas actualizadas con catálogo real (pinch precision, reach accuracy, wrist rotation, smoothness)
+- Step 2: añadida referencia "across three clinical games designed around FMA-UE items"
+- Step 4: añadida referencia a "across all three games"
+- Step 4: añadida mención explícita a "Inter-hand asymmetry is computed automatically"
+
+---
+
+## [Solution landing — métricas actualizadas] — 2026-06-04
+### Modificado
+- Array de métricas actualizado con IDs técnicos reales del catálogo
+- 10 métricas CORE: M1 (pinch), M2 (hand opening), M4 (wrist ROM), M11 (SPARC), reach, overshoot, index extension, pronosup, asymmetry, recovery gap
+- Texto descriptivo actualizado con referencia explícita a FMA-UE
+- "Each movement maps directly to an item on the Fugl-Meyer Assessment scale"
+- Grid de métricas ahora muestra las métricas reales del MVP
+
+---
+
+## [/science/validation — métricas actualizadas] — 2026-06-04
+### Modificado
+- scientificBasis actualizado con métricas reales del catálogo (M1, M2, M4, M11)
+- 6 métricas: SPARC, ROM wrist, pinch precision, reach precision, asymmetry, pronosup speed
+- currentStatus añade estado de correlación FMA-UE ρ≈0.92 (literature-based)
+- Lenguaje clínico preciso alineado con FMA-UE items
+- Énfasis en que las métricas mapean directamente a la escala FMA-UE
+- Total: 5 estados (3 validated, 2 pending)
+
+---
+
+## [/product/experience — métricas actualizadas] — 2026-06-04
+### Modificado
+- Métricas de cada juego actualizadas con IDs técnicos reales (M1, M2, M4, M11)
+- Descripciones clínicas revisadas con lenguaje preciso
+- Orden de juegos actualizado: Pill Organizer → Light Switch → Water Jug
+- Tag de Light Switch actualizado: "Finger Extension & Bilateral Asymmetry"
+- Biomarcadores ahora incluyen referencias específicas del catálogo
+- "Why it matters" mejorado con contexto clínico más específico
+
+---
+
+## [/product/biomarkers — métricas actualizadas] — 2026-06-04
+### Modificado
+- Categorías reorganizadas por juego: Pill Organizer, Light Switch, Water Jug, Derived Metrics
+- Métricas actualizadas con IDs técnicos reales del catálogo (M1, M2, M4, M11, etc.)
+- Solo métricas CORE incluidas — V2 y EXPL no aparecen en el MVP
+- Badge MVP añadido a cada métrica (verde)
+- Descripciones e insights actualizados con lenguaje clínico preciso
+- Hero actualizado: ya no menciona "12 métricas" sino "Core biomarkers across three games"
+- Total: 13 métricas CORE organizadas en 4 categorías por juego
+
+---
+
+## [/science/references — referencias reales] — 2026-06-04
+### Modificado
+- Todos los placeholders reemplazados por referencias reales
+- 8 referencias con DOIs verificables
+- Fuentes: GBD 2021/2024, AHA 2024, WSO 2025, PLOS ONE 2024, JMIR 2025, Lancet 2026, UCM 2011
+- 2 marcadas como validated, 6 como grounded
+- Referencias de validación del Fugl-Meyer Assessment (PLOS ONE 2024, UCM 2011)
+- Referencias de epidemiología global del ictus (GBD 2021, WSO 2025, AHA 2024, Lancet 2026)
+- Referencias de adherencia en salud digital (JMIR 2025, JMIR Rehab 2023)
+
+---
+
+## [SEO — headings invisibles landing] — 2026-06-02
+### Añadido
+- H2 y H3 SEO invisibles en todas las secciones de la landing
+- Patrón sr-only — visibles para Google, invisibles para el visitante
+- Secciones: Problem, Solution, Pipeline, Traction, Metrics, TeamPreview, Contact
+- Constante srOnly reutilizable en cada fichero
+
+---
+
+## [Hero — H1 SEO invisible] — 2026-06-02
+### Modificado
+- H1 SEO invisible con sr-only pattern: "Post-Stroke Rehabilitation Monitoring. Zero Hardware."
+- H2 visible mantiene el impacto emocional: "Your patients recover every day. You find out weeks later."
+- Google indexa el H1, el visitante ve el H2
+- H1 oculto con position absolute + clip para accesibilidad y SEO
+
+---
+
+## [/company/about — agradecimiento Bosch] — 2026-06-02
+### Añadido
+- Bloque de agradecimiento a Juan Antonio y Bosch
+- Foto + texto + badge "Special thanks"
+- Posicionado después de la primera imagen del hackathon (Phase 01)
+- Animación Framer Motion con whileInView
+- Imagen movida a public/sponsors/JuanAntonioBosch.jpg
+
+---
+
+## [/science/validation] — 2026-05-31
+### Añadido
+- Página /science/validation completa con 4 secciones
+- Hero oscuro con headline "Built on evidence. Honest about where we are."
+- Base científica con 5 biomarcadores validados en literatura:
+  - Movement Smoothness (SPARC)
+  - Hand Kinematics Panel (ρ=0.92 con FMA-UE)
+  - MediaPipe para kinemática clínica
+  - Gaze Asymmetry para hemispatial neglect
+  - Maximum Phonation Time para control laríngeo
+- Estado actual en 4 cards: 2 completadas (verde), 2 en progreso (amarillo)
+- Plan de validación en 4 pasos: Clinical partner → IRB → Pilot study → Publication
+- CTA para partners clínicos al final
+- Todos los colores como variables COLORS
+- Animaciones Framer Motion con stagger
+- Honesto sobre fase actual — sin claims exagerados
+
+---
+
+## [Pipeline — responsive móvil] — 2026-05-31
+### Modificado
+- Panel derecho (SessionReportCard) oculto en móvil, visible solo en desktop (lg+)
+- Pasos ocupan ancho completo en móvil (w-full)
+- Tipografía adaptada con clamp: título activo 16px-22px, descripción 13px-15px
+- Padding reducido en móvil: px-4 lg:px-6
+- Headline más pequeña en móvil: text-3xl md:text-4xl lg:text-5xl
+- Dots de progreso más grandes en móvil: 8px altura, 20px activo (antes 6px y 24px)
+- Gap entre columnas: 8px móvil, 16px desktop
+- Desktop (lg+) sin cambios — grid 1.4fr 1fr mantenido
+
+---
+
+## [Traction — responsive móvil] — 2026-05-31
+### Modificado
+- Padding reducido en móvil (py-12 md:py-24, antes py-24)
+- Logos más pequeños en móvil con clamp (24px-36px, antes fijo 36px)
+- Logos con maxWidth 100px (antes 120px)
+- Carrusel más rápido (20s, antes 30s) y gap reducido a 40px
+- Badge adaptado a pantalla pequeña con clamp (11px-13px)
+- Padding del track reducido a 8px 24px (antes 16px 48px)
+
+---
+
 ## [Hero — video de fondo añadido] — 2026-05-31
 ### Añadido
 - Video de fondo en el Hero principal de la landing
