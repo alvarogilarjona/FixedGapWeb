@@ -141,6 +141,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileOpenMenu, setMobileOpenMenu] = useState<string | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-border h-20">
@@ -237,16 +238,40 @@ export default function Navbar() {
                           <div className="grid grid-cols-2 gap-6 flex-1">
                             {/* Video 1 - Our Story */}
                             <div>
-                              <div className="relative rounded-xl overflow-hidden">
-                                <div className="bg-brand-navy aspect-video w-full flex items-center justify-center" style={{ minHeight: '240px' }}>
-                                  <p style={{
-                                    color: '#98A2B3',
-                                    fontSize: '11px',
-                                    fontWeight: 500,
-                                    textAlign: 'center',
+                              <div
+                                onClick={() => setVideoOpen(true)}
+                                style={{
+                                  position: 'relative',
+                                  borderRadius: '8px',
+                                  overflow: 'hidden',
+                                  aspectRatio: '16/9',
+                                  backgroundColor: '#0A0F1E',
+                                  cursor: 'pointer',
+                                  minHeight: '240px',
+                                }}
+                                className="group"
+                              >
+                                {/* Overlay con botón play */}
+                                <div style={{
+                                  position: 'absolute',
+                                  inset: 0,
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  backgroundColor: 'rgba(0,0,0,0.4)',
+                                }}
+                                className="group-hover:bg-black/30 transition-colors"
+                                >
+                                  <div style={{
+                                    backgroundColor: 'rgba(255,255,255,0.9)',
+                                    borderRadius: '999px',
+                                    padding: '8px 14px',
+                                    fontSize: '12px',
+                                    fontWeight: 600,
+                                    color: '#1A1F3C',
                                   }}>
-                                    Video not available yet
-                                  </p>
+                                    Watch Video
+                                  </div>
                                 </div>
                               </div>
                               <p className="text-sm text-brand-navy font-semibold mt-3">
@@ -592,6 +617,64 @@ export default function Navbar() {
                 View full demo page →
               </a>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal del vídeo Our Story */}
+      {videoOpen && (
+        <div
+          onClick={() => setVideoOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0,0,0,0.85)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '24px',
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              width: '100%',
+              maxWidth: '900px',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              position: 'relative',
+            }}
+          >
+            {/* Botón cerrar */}
+            <button
+              onClick={() => setVideoOpen(false)}
+              style={{
+                position: 'absolute',
+                top: '12px',
+                right: '12px',
+                zIndex: 10,
+                backgroundColor: 'rgba(0,0,0,0.5)',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '999px',
+                width: '32px',
+                height: '32px',
+                cursor: 'pointer',
+                fontSize: '16px',
+              }}
+            >
+              ✕
+            </button>
+
+            <video
+              controls
+              autoPlay
+              playsInline
+              style={{ width: '100%', display: 'block' }}
+            >
+              <source src="/our-story.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       )}

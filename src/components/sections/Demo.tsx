@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Play, MoveRight } from 'lucide-react'
+import { MoveRight } from 'lucide-react'
 
 const COLORS = {
   bg: '#0A0F1E',
@@ -58,47 +58,13 @@ export default function Demo() {
             position: 'relative',
           }}
         >
-          {/* VIDEO — sustituir src cuando esté listo */}
-          {/* Cuando tengas el MP4 guardarlo en public/videos/our-story.mp4 */}
-          {/* y descomentar el elemento video: */}
-
-          {/*
           <video
             controls
             playsInline
-            poster="/videos/our-story-thumbnail.jpg"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           >
-            <source src="/videos/our-story.mp4" type="video/mp4" />
+            <source src="/our-story.mp4" type="video/mp4" />
           </video>
-          */}
-
-          {/* PLACEHOLDER — se elimina cuando el vídeo esté listo */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '16px',
-          }}>
-            <div style={{
-              width: '64px',
-              height: '64px',
-              borderRadius: '50%',
-              backgroundColor: COLORS.btnBg,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-              <Play size={24} style={{ color: '#FFFFFF', marginLeft: '4px' }} />
-            </div>
-            <p style={{ color: COLORS.body, fontSize: '14px' }}>
-              Video coming soon — add to public/videos/our-story.mp4
-            </p>
-          </div>
-
         </motion.div>
 
       </div>

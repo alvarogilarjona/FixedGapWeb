@@ -5,6 +5,45 @@ Actualizar este fichero después de cada cambio importante.
 
 ---
 
+## [Navbar — vídeo Our Story con modal] — 2026-06-08
+### Modificado
+- Mega menu Demo: vídeo Our Story reemplazado por thumbnail con botón "Watch Video" (sin emoticono)
+- Thumbnail clickable con overlay hover
+- Modal de vídeo implementado con autoPlay y botón de cerrar (✕)
+- Estado `videoOpen` añadido para controlar el modal
+- z-index 9999 para el modal (sobre el navbar)
+
+---
+
+## [Demo section — vídeo activado] — 2026-06-08
+### Modificado
+- Vídeo "Our Story" activado en la sección Demo de la landing
+- Vídeo "Our Story" añadido al mega menu del Navbar (sección Demo)
+- Vídeo "Our Story" añadido a la página externa `/demo` (sección Our Story)
+- Archivo renombrado: `our story.mp4` → `our-story.mp4`
+- Placeholders eliminados y reemplazados por elementos `<video>` con controls y playsInline
+- Import de Play icon eliminado (ya no se usa)
+
+---
+
+## [TeamCarousel — descripciones completas] — 2026-06-08
+### Modificado
+- Actualizadas las descripciones de todos los miembros del equipo con texto completo
+- Álvaro, Mateo, Luis, Marco, Helene, José Antonio — biografías expandidas
+- Título de José Antonio cambiado de "Advisor" a "Co-founder"
+- Todas las descripciones ahora incluyen contexto completo de rol, formación, y contribución
+
+---
+
+## [/company/team — foto grupal añadida] — 2026-06-08
+### Modificado
+- Añadida foto grupal entre hero y carousel
+- Imagen: `/about/oficina.jpeg`
+- Aspect ratio 16/9, bordes redondeados
+- Pie de foto: "The FixedGap team — Madrid, 2026" (centrado, cursiva, color #6B7689)
+
+---
+
 ## [/company/about — imagen oficina] — 2026-06-08
 ### Modificado
 - Imagen final reemplazada: `about-team.jpg` → `oficina.jpeg`

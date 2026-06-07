@@ -36,6 +36,43 @@ export default function TeamPage() {
         </div>
       </section>
 
+      {/* Foto grupal */}
+      <section style={{ backgroundColor: '#FFFFFF' }} className="px-6 pt-12 pb-0">
+        <div className="max-w-5xl mx-auto">
+
+          {/* Foto grupal */}
+          <div style={{
+            borderRadius: '20px',
+            overflow: 'hidden',
+            width: '100%',
+            aspectRatio: '16/9',
+          }}>
+            <img
+              src="/about/oficina.jpeg"
+              alt="The FixedGap team — Madrid, 2026"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center',
+              }}
+            />
+          </div>
+
+          {/* Pie de foto */}
+          <p style={{
+            color: '#6B7689',
+            fontSize: '13px',
+            textAlign: 'center',
+            marginTop: '12px',
+            fontStyle: 'italic',
+          }}>
+            The FixedGap team — Madrid, 2026
+          </p>
+
+        </div>
+      </section>
+
       {/* Team Carousel */}
       <section style={{ backgroundColor: COLORS.bg }} className="py-24 px-6">
         <div className="max-w-5xl mx-auto">

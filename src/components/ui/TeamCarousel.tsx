@@ -19,7 +19,7 @@ const team: TeamMember[] = [
   {
     name: "Álvaro Gil Arjona",
     title: "Co-founder, Product & Strategy",
-    description: "Álvaro leads product direction, strategy, user experience, and company positioning at FixedGap. Pursuing Computer Science and Business at UCM, he translates the clinical problem into a usable product experience while driving the website, demo videos, pitch materials, and external communication.",
+    description: "Álvaro leads product direction, strategy, user experience, and company positioning at Fixed Gap. He is pursuing a Computer Science and Business degree at Universidad Complutense de Madrid, giving him a hybrid profile across AI, technology, business, and entrepreneurship. At Fixed Gap, Álvaro works on translating the clinical problem into a usable product experience, while also driving the website, demo videos, pitch materials, product narrative, and external communication. His role is critical in making sure the product is not only technically feasible, but also understandable, usable, and compelling for clinicians, mentors, and investors.",
     imageUrl: "/AlvaroNueva.png",
     linkedinUrl: "https://www.linkedin.com/in/alvarogilarjona/",
     githubUrl: "https://github.com/alvarogilarjona",
@@ -27,7 +27,7 @@ const team: TeamMember[] = [
   {
     name: "Mateo Pérez Guzmán",
     title: "Co-founder, MVP Engineering",
-    description: "Mateo leads MVP engineering and software development at FixedGap. Software Engineer at Galeo and dual degree student in Computer Science and Business at UCM. He focuses on MVP architecture, computer vision implementation, and technical execution.",
+    description: "Mateo leads MVP engineering and software development at Fixed Gap. He is a Software Engineer at Galeo and is pursuing a dual degree in Computer Science and Business Administration at Universidad Complutense de Madrid. His role focuses on MVP architecture, software development, computer vision implementation, and technical execution. Mateo's combination of professional software engineering experience and business training is especially valuable for Fixed Gap's current stage, where the company needs to build quickly, test with users, and iterate the core product internally.",
     imageUrl: "/team/mateo.jpg",
     linkedinUrl: "https://www.linkedin.com/in/mateoperezguzman/",
     githubUrl: "https://github.com/mpchachi",
@@ -35,7 +35,7 @@ const team: TeamMember[] = [
   {
     name: "Luis Molina Salvador",
     title: "Co-founder, Strategy",
-    description: "Luis leads strategy, fundraising, partnerships, go-to-market, and investor outreach at FixedGap. Jr Software Developer at Amazon with a double degree in Computer Engineering and Business at UCM, plus experience in AI development and equity analysis.",
+    description: "Luis leads strategy, fundraising, partnerships, go-to-market, investor outreach, and venture execution at Fixed Gap. He is a Jr Software Developer at Amazon and is pursuing a double degree in Computer Engineering and Business Administration at Universidad Complutense de Madrid. His background combines software, business, finance, and AI, including experience as an AI Dev at Grupo Oesía and as an equity analyst at Arcanix Fund. At Fixed Gap, Luis focuses on turning the product into an investable company: defining the narrative, building partnerships, preparing investor materials, and driving commercial strategy.",
     imageUrl: "/team/luis.jpg",
     linkedinUrl: "https://www.linkedin.com/in/luis-molina-salvador/",
     githubUrl: "https://github.com/34lumo",
@@ -43,7 +43,7 @@ const team: TeamMember[] = [
   {
     name: "Marco García López",
     title: "Co-founder, MVP Engineering",
-    description: "Marco leads MVP engineering, computer vision implementation, and technical execution at FixedGap. Pursuing a double degree in Computer Science and Business at UCM. He focuses on software development, product architecture, and computer vision logic.",
+    description: "Marco leads MVP engineering, computer vision implementation, and technical execution at Fixed Gap. He is pursuing a double degree in Computer Science and Business Administration at Universidad Complutense de Madrid and has already worked on browser-based neuromotor tracking prototypes and AI-assisted healthtech tools through previous hackathon projects. At Fixed Gap, Marco focuses on software development, product architecture, computer vision logic, and MVP execution. His role strengthens the team's ability to build the core product internally, test quickly, and adapt the technology around clinical and product feedback.",
     imageUrl: "/team/marco.jpg",
     linkedinUrl: "https://www.linkedin.com/in/marco-garcia-lopez-4b0037308/",
     githubUrl: "https://github.com/marcusen78-sketch",
@@ -51,14 +51,14 @@ const team: TeamMember[] = [
   {
     name: "Helene Weinberg",
     title: "Co-founder, Clinical & Biomedical Translation",
-    description: "Helene leads the clinical and biomedical translation layer at FixedGap. Cum Laude Biomedical Engineering graduate from Binghamton University, incoming MiM at IESE, and Healthcare Management certified by Cornell. She bridges engineering, clinical relevance, and healthcare business execution.",
+    description: "Helene leads the clinical and biomedical translation layer at Fixed Gap. She is an incoming Master in Management student at IESE Business School, a Cum Laude Biomedical Engineering graduate from Binghamton University, and holds a Healthcare Management certification from Cornell University. Her role is to connect the technical product with rehabilitation needs, translating biomedical engineering concepts into clinically understandable product decisions, biomarker logic, and clinician-facing report design. Helene strengthens the bridge between engineering, clinical relevance, and healthcare business execution.",
     imageUrl: "/team/helene.jpg",
     linkedinUrl: "https://www.linkedin.com/in/helene-weinberg/",
   },
   {
     name: "José Antonio López-Martín",
-    title: "Advisor, Medicine & Clinical Research",
-    description: "José Antonio serves as senior clinical validator and medical research lead at FixedGap. Director of Research and Innovation at Atrys with deep experience in translational medicine, precision medicine, and clinical development. He provides physician-level judgment and defines the clinical validation pathway.",
+    title: "Co-founder, Medicine & Clinical Research",
+    description: "José Antonio serves as senior clinical validator and medical research lead at Fixed Gap. He is Director of Research and Innovation at Atrys and brings deep experience in clinical research, translational medicine, precision medicine, medical oncology, clinical development, and medical innovation. Graduated with honors (Premio Extraordinario de Licenciatura, 1989) and holds a Doctor of Philosophy (PhD) in Medicine (2016). At Fixed Gap, José Antonio provides physician-level judgment and clinical credibility, helping the team challenge its medical assumptions, define a credible validation pathway, and ensure the product remains aligned with real clinical workflows and physician needs. His role is especially important as Fixed Gap moves from MVP development toward clinical validation and pilot readiness.",
     imageUrl: "/team/jal.jpg",
     linkedinUrl: "#",
   },
