@@ -270,7 +270,7 @@ export default function AboutPage() {
                 a medical-grade sensor.
               </p>
               <p style={{ fontWeight: 600, color: COLORS.sectionHeadline }}>
-                FixedGap V2 captures the same 14 clinical biomarkers as the glove — but
+                FixedGap V2 captures the same 13 clinical biomarkers as the glove — but
                 with zero hardware:
               </p>
               <ul className="space-y-3 ml-6">
@@ -326,7 +326,7 @@ export default function AboutPage() {
 
           {/* Imagen ancha */}
           <div className="mb-12">
-            <img src="/about/about-team.jpg" alt="FixedGap team at Harvard HSIL"
+            <img src="/about/oficina.jpeg" alt="FixedGap team at Harvard HSIL"
               style={{
                 width: '100%',
                 height: '500px',

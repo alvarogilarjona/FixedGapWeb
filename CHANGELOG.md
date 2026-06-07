@@ -5,6 +5,141 @@ Actualizar este fichero después de cada cambio importante.
 
 ---
 
+## [/company/about — imagen oficina] — 2026-06-08
+### Modificado
+- Imagen final reemplazada: `about-team.jpg` → `oficina.jpeg`
+- Ubicación: `/about/oficina.jpeg`
+
+---
+
+## [/product/dashboard — vídeo] — 2026-06-08
+### Modificado
+- Imagen del dashboard reemplazada por elemento de vídeo
+- Vídeo: `/clinical/videoDashboard.mp4`
+- Configuración: autoPlay, muted, loop, playsInline
+- Aspect ratio 16/10 con objectFit: cover
+
+---
+
+## [Biomarcadores actualizados a 13] — 2026-06-08
+### Modificado
+- Todas las referencias de "12 hand biomarkers" cambiadas a "13 clinical biomarkers"
+- Todas las referencias de "14 clinical biomarkers" cambiadas a "13 clinical biomarkers"
+- Actualizado en Navbar: descripción de Biomarkers
+- Actualizado en /company/about: texto de FixedGap V2
+- Actualizado en archivos backup: SolutionV2Backup, SolutionV3Backup, SolutionV4Backup, SolutionWithAurora
+
+---
+
+## [Manifesto → Behind FixedGap] — 2026-06-08
+### Modificado
+- Renombrada ruta: `/company/manifesto` → `/company/behind-fixedgap`
+- Renombrada carpeta: `src/app/company/manifesto/` → `src/app/company/behind-fixedgap/`
+- Renombrado componente: `Manifesto.tsx` → `BehindFixedGap.tsx`
+- Texto visible cambiado de "Manifesto" a "Behind FixedGap" en Navbar y Footer
+- Label actualizado de "FixedGap Manifesto" a "Behind FixedGap"
+- Carpeta de imágenes: `public/manifesto/` → `public/behind-fixedgap/`
+- Función del componente: `ManifestoPage()` → `BehindFixedGapPage()`
+- ID de sección: `#manifesto` → `#behind-fixedgap`
+
+---
+
+## [/pricing — eliminada sección Plans] — 2026-06-07
+### Modificado
+- Eliminadas las dos cards de precios (€30-50/mes por neurólogo y €20-30 por paciente)
+- Eliminada la nota de GDPR compliance
+- Mantenidos: Hero, Buyer vs User, y CTA final
+
+---
+
+## [/market — globo actualizado] — 2026-06-07
+### Modificado
+- Marcadores reducidos a España y Boston
+- Madrid → Spain (coordenadas iguales)
+- New York → Boston (lat: 42.3601, lng: -71.0589)
+- Eliminados Alemania y Francia
+- countryData actualizado con datos de Spain y Boston
+
+---
+
+## [/market — card interactiva por país] — 2026-06-07
+### Modificado
+- Globo ahora en layout dos columnas con card de datos a la derecha
+- Al pinchar en un marcador aparece card con datos de ictus del país
+- España y USA con datos reales verificables
+- Alemania y Francia con "Coming soon"
+- Botón "Back to globe" para cerrar la card
+- Animación smooth al abrir la card
+
+---
+
+## [/science/references — tabla clinically grounded] — 2026-06-07
+### Modificado
+- Sección "Clinically grounded" reemplazada por tabla con búsqueda y filtros
+- 6 referencias filtrables por tipo: Clinical burden, Epidemiology, Digital health, Rehabilitation
+- Búsqueda en tiempo real por título, relevancia o autores
+- Backup en page.backup2.tsx para revertir
+### Para revertir
+- `cp src/app/science/references/page.backup2.tsx src/app/science/references/page.tsx`
+
+---
+
+## [/science/references — Timeline validated (revertido)] — 2026-06-07
+### Modificado
+- Sección "Directly validated" reemplazada por Timeline_01
+- 2 referencias con items expandibles y links a DOIs
+- Backup en page.backup.tsx para revertir fácilmente
+### Para revertir
+- `cp src/app/science/references/page.backup.tsx src/app/science/references/page.tsx`
+
+---
+
+## [/science/validation — Roadmap Card] — 2026-06-07
+### Modificado
+- Sección "Where we are today" reemplazada por Roadmap Card
+- 5 milestones: done x3, in-progress, planned
+- Backup en page.backup.tsx para revertir fácilmente
+### Para revertir
+- `cp src/app/science/validation/page.backup.tsx src/app/science/validation/page.tsx`
+
+---
+
+## [/demo + navbar — video placeholder] — 2026-06-07
+### Modificado
+- Vídeos reemplazados por mensaje "Video not available yet"
+- Aplicado en /demo page y en mega menú de Demo
+- Placeholder con fondo oscuro (#141B2D) y texto claro
+
+---
+
+## [/company/team — carousel de perfiles] — 2026-06-07
+### Modificado
+- Grid de 6 cards reemplazado por carousel interactivo
+- Componente TeamCarousel en /components/ui/TeamCarousel.tsx
+- Foto grande + card con descripción + LinkedIn
+- Responsive: desktop overlap, mobile stack
+- 6 miembros: Álvaro, Mateo, Luis, Marco, Helene, José Antonio
+- Navegación con flechas y dots indicadores
+- Animaciones con framer-motion para transiciones suaves
+
+---
+
+## [Demo section + nuevo logo] — 2026-06-07
+### Añadido
+- Sección Demo en landing entre Traction y Solution
+- Placeholder de vídeo — activar cuando esté public/videos/our-story.mp4
+- CTA "See all videos" que lleva a /demo
+- Header con label "See it in action", headline "Watch how FixedGap works."
+- Video container con aspect-ratio 16/9 y botón de play placeholder
+### Modificado
+- Logo actualizado en Navbar y Footer
+- Imagen: public/nuevologo.png
+- Logo aparece junto al texto FixedGap en ambos sitios
+- Navbar: logo 32x32px + texto "FixedGap"
+- Footer: logo 28x28px + texto "FixedGap"
+
+---
+
 ## [/investors — importado del repo anterior] — 2026-06-04
 ### Añadido
 - Página /investors copiada del repo mpchachi/fixedgap

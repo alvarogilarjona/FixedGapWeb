@@ -35,7 +35,7 @@ const steps = [
     number: '02',
     subtitle: 'The Technology',
     title: 'Computer vision captures movement',
-    points: ['12 hand biomarkers', 'Real-time landmark tracking', 'No data leaves the device', 'ML models process instantly'],
+    points: ['13 clinical biomarkers', 'Real-time landmark tracking', 'No data leaves the device', 'ML models process instantly'],
     image: '/hand-tracking.jpg',
     align: 'right',
     offset: 80,

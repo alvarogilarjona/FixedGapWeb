@@ -12,7 +12,7 @@ const MANIFESTO_COLORS = {
   imageCaption: '#6B7689',
 }
 
-export default function ManifestoPage() {
+export default function BehindFixedGapPage() {
   return (
     <main>
       <Navbar />
@@ -23,7 +23,7 @@ export default function ManifestoPage() {
         <div className="max-w-3xl mx-auto">
           <span style={{ color: MANIFESTO_COLORS.label }}
             className="text-xs font-semibold tracking-widest uppercase">
-            FixedGap Manifesto
+            Behind FixedGap
           </span>
           <h1 style={{ color: '#FFFFFF' }}
             className="text-5xl md:text-6xl font-bold mt-4 leading-tight">
@@ -66,7 +66,7 @@ export default function ManifestoPage() {
             </div>
             {/* Imagen derecha */}
             <div>
-              <img src="/manifesto/recovery-data-visualization.jpg" alt="Recovery data visualization"
+              <img src="/behind-fixedgap/recovery-data-visualization.jpg" alt="Recovery data visualization"
                 style={{ width: '100%', borderRadius: '12px', objectFit: 'cover' }} />
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function ManifestoPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Imagen izquierda */}
             <div className="order-2 lg:order-1">
-              <img src="/manifesto/rehabilitation-glove.jpg" alt="Rehabilitation glove prototype"
+              <img src="/behind-fixedgap/rehabilitation-glove.jpg" alt="Rehabilitation glove prototype"
                 style={{ width: '100%', borderRadius: '12px', objectFit: 'cover' }} />
             </div>
             {/* Texto derecha */}
@@ -157,7 +157,7 @@ export default function ManifestoPage() {
             </div>
             {/* Imagen derecha */}
             <div>
-              <img src="/manifesto/team-development.jpg" alt="Team working on the prototype"
+              <img src="/behind-fixedgap/team-development.jpg" alt="Team working on the prototype"
                 style={{ width: '100%', borderRadius: '12px', objectFit: 'cover' }} />
             </div>
           </div>

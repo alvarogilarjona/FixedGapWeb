@@ -49,18 +49,29 @@ export default function DemoPage() {
           >
             The problem we are solving.
           </h2>
-          <div
-            style={{
-              backgroundColor: '#E8E0D0',
-              borderRadius: '16px',
-              aspectRatio: '16/9',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <p style={{ color: '#98A2B3', fontSize: '14px', fontWeight: 500 }}>
-              [ Our Story video — coming soon ]
+          <div style={{
+            backgroundColor: '#141B2D',
+            borderRadius: '16px',
+            aspectRatio: '16/9',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '12px',
+            border: '1px solid #1E2A40',
+          }}>
+            <p style={{
+              color: '#FFFFFF',
+              fontSize: '18px',
+              fontWeight: 600
+            }}>
+              Video not available yet.
+            </p>
+            <p style={{
+              color: '#98A2B3',
+              fontSize: '14px'
+            }}>
+              Coming soon.
             </p>
           </div>
           <div style={{ marginTop: '24px' }}>
@@ -104,24 +115,30 @@ export default function DemoPage() {
           >
             FixedGap game walkthrough.
           </h2>
-          <div
-            style={{
-              borderRadius: '16px',
-              overflow: 'hidden',
-              aspectRatio: '16/9',
-            }}
-          >
-            <video
-              controls
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-              }}
-            >
-              <source src="/demo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div style={{
+            backgroundColor: '#141B2D',
+            borderRadius: '16px',
+            aspectRatio: '16/9',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '12px',
+            border: '1px solid #1E2A40',
+          }}>
+            <p style={{
+              color: '#FFFFFF',
+              fontSize: '18px',
+              fontWeight: 600
+            }}>
+              Video not available yet.
+            </p>
+            <p style={{
+              color: '#98A2B3',
+              fontSize: '14px'
+            }}>
+              Coming soon.
+            </p>
           </div>
           <div style={{ marginTop: '24px' }}>
             <p

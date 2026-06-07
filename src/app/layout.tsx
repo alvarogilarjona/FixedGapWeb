@@ -1,12 +1,29 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// BEFORE — to revert if needed:
+// import { Inter } from "next/font/google";
+// const inter = Inter({
+//   variable: "--font-inter",
+//   subsets: ["latin"],
+// });
+
+// DM Sans (commented):
+// import { DM_Sans } from "next/font/google";
+// const dmSans = DM_Sans({
+//   variable: "--font-dm-sans",
+//   subsets: ["latin"],
+//   weight: ['300', '400', '500', '600', '700', '800'],
+// });
+
+// Testing Plus Jakarta Sans:
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import LoadingScreen from "@/components/LoadingScreen";
 
-const inter = Inter({
-  variable: "--font-inter",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
+  weight: ['300', '400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -50,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${plusJakarta.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <LoadingScreen />
         <Navbar />

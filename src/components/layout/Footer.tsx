@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Mail } from 'lucide-react'
 
 const COLORS = {
@@ -24,10 +25,19 @@ export default function Footer() {
 
           {/* Logo y tagline */}
           <div className="col-span-2">
-            <span style={{ color: COLORS.logo }}
-              className="text-xl font-bold">
-              FixedGap
-            </span>
+            <div className="flex items-center gap-2">
+              <Image
+                src="/logonuevo.jpeg"
+                alt="FixedGap"
+                width={28}
+                height={28}
+                style={{ objectFit: 'contain' }}
+              />
+              <span style={{ color: COLORS.logo }}
+                className="text-xl font-bold">
+                FixedGap
+              </span>
+            </div>
             <p style={{ color: COLORS.tagline }}
               className="text-sm mt-3 leading-relaxed max-w-xs">
               Daily biomarkers from home.<br />
@@ -68,7 +78,7 @@ export default function Footer() {
               {[
                 { label: 'Our Story', href: '/company/about' },
                 { label: 'Team', href: '/company/team' },
-                { label: 'Manifesto', href: '/company/manifesto' },
+                { label: 'Behind FixedGap', href: '/company/behind-fixedgap' },
               ].map(link => (
                 <a key={link.label} href={link.href}
                   style={{ color: COLORS.link }}

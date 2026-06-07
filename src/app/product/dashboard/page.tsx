@@ -159,17 +159,27 @@ export default function DashboardPage() {
               </p>
             </div>
 
-            {/* Dashboard screenshot */}
+            {/* Dashboard video */}
             <div style={{
               borderRadius: '16px',
               overflow: 'hidden',
               border: `1px solid ${COLORS.cardBorder}`,
+              aspectRatio: '16/10',
+              backgroundColor: '#000000',
             }}>
-              <img
-                src="/clinical/dashboard.png"
-                alt="Clinical Dashboard showing patient recovery metrics and biomarkers"
-                className="w-full h-auto"
-              />
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              >
+                <source src="/clinical/videoDashboard.mp4" type="video/mp4" />
+              </video>
             </div>
 
           </div>

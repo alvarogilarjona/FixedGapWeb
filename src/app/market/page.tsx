@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -38,31 +39,42 @@ const markers: GlobeMarker[] = [
     lat: 40.4168,
     lng: -3.7038,
     src: 'https://flagcdn.com/w80/es.png',
-    label: 'Madrid',
+    label: 'Spain',
     info: 'HQ & First Pilots',
   },
   {
-    lat: 40.7128,
-    lng: -74.006,
+    lat: 42.3601,
+    lng: -71.0589,
     src: 'https://flagcdn.com/w80/us.png',
-    label: 'New York',
+    label: 'Boston',
     info: 'U.S. Market Entry',
   },
-  {
-    lat: 52.52,
-    lng: 13.405,
-    src: 'https://flagcdn.com/w80/de.png',
-    label: 'Berlin',
-    info: 'DiGA Pathway',
-  },
-  {
-    lat: 48.8566,
-    lng: 2.3522,
-    src: 'https://flagcdn.com/w80/fr.png',
-    label: 'Paris',
-    info: 'EU Expansion',
-  },
 ]
+
+const countryData: Record<string, {
+  flag: string
+  stats: { label: string, value: string, note?: string }[]
+}> = {
+  'Spain': {
+    flag: '🇪🇸',
+    stats: [
+      { label: 'New strokes per year', value: '90,000–120,000', note: 'SEN, October 2025' },
+      { label: 'Deaths per year', value: '23,000–25,000', note: 'Ministerio de Sanidad, 2024' },
+      { label: 'Living with stroke sequelae', value: '330,000+', note: 'SEN prevalence data' },
+      { label: 'Stroke patients per neurologist', value: '1,015', note: 'Calculated from SEN data' },
+      { label: 'Strokes per hour', value: '~11', note: 'Based on 90,000/year' },
+    ]
+  },
+  'Boston': {
+    flag: '🇺🇸',
+    stats: [
+      { label: 'New strokes per year (US)', value: '795,000', note: 'AHA, 2024' },
+      { label: 'Deaths from stroke', value: '1 every 3 min 14 sec', note: 'CDC, 2024' },
+      { label: 'Adults living with stroke (US)', value: '7.8 million', note: 'CDC, 2024' },
+      { label: 'First-ever strokes (US)', value: '610,000/year', note: 'AHA Heart & Stroke Statistics 2024' },
+    ]
+  },
+}
 
 // Ratios pacientes/neurólogo
 const ratios = [
@@ -133,6 +145,8 @@ const businessModel = [
 ]
 
 export default function MarketPage() {
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null)
+
   return (
     <main>
       <Navbar />
@@ -178,23 +192,124 @@ export default function MarketPage() {
           </p>
           <p style={{ color: COLORS.body, fontSize: '13px' }}
             className="mt-3">
-            Hover over the flags to explore each market
+            Click on a country to see stroke data
           </p>
 
         </div>
 
-        {/* Globo 3D */}
-        <Globe3D
-          markers={markers}
-          className="h-[450px] md:h-[550px] mt-8"
-          config={{
-            atmosphereColor: '#4da6ff',
-            atmosphereIntensity: 0.4,
-            showAtmosphere: true,
-            bumpScale: 3,
-            autoRotateSpeed: 0.4,
-          }}
-        />
+        {/* Globo + Card */}
+        <div className="max-w-7xl mx-auto mt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+
+            {/* Globo */}
+            <Globe3D
+              markers={markers}
+              className="h-[450px] md:h-[500px]"
+              config={{
+                atmosphereColor: '#4da6ff',
+                atmosphereIntensity: 0.4,
+                showAtmosphere: true,
+                bumpScale: 3,
+                autoRotateSpeed: 0.4,
+              }}
+              onMarkerClick={(marker) => setSelectedCountry(marker.label || null)}
+            />
+
+            {/* Card de datos */}
+            <div style={{ minHeight: '300px' }}>
+              {!selectedCountry ? (
+                // Estado inicial — ningún país seleccionado
+                <div style={{
+                  backgroundColor: '#F7F9FC',
+                  border: '1px solid #E8E0D0',
+                  borderRadius: '16px',
+                  padding: '32px',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '12px',
+                  textAlign: 'center',
+                }}>
+                  <p style={{ color: '#6B7689', fontSize: '14px' }}>
+                    Click on a country to see stroke data
+                  </p>
+                </div>
+              ) : (
+                // Card con datos del país seleccionado
+                <motion.div
+                  key={selectedCountry}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    border: '1px solid #E8E0D0',
+                    borderRadius: '16px',
+                    padding: '32px',
+                  }}
+                >
+                  {/* Header */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                    <span style={{ fontSize: '32px' }}>
+                      {countryData[selectedCountry]?.flag}
+                    </span>
+                    <div>
+                      <p style={{ color: '#1F4C9C', fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                        Stroke data
+                      </p>
+                      <h3 style={{ color: '#1A1F3C', fontSize: '20px', fontWeight: 700 }}>
+                        {selectedCountry}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Stats */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    {countryData[selectedCountry]?.stats.map((stat, i) => (
+                      <div key={i} style={{
+                        borderBottom: i < countryData[selectedCountry].stats.length - 1 ? '1px solid #E8E0D0' : 'none',
+                        paddingBottom: '16px',
+                      }}>
+                        <p style={{ color: '#6B7689', fontSize: '12px', marginBottom: '4px' }}>
+                          {stat.label}
+                        </p>
+                        <p style={{ color: '#1F4C9C', fontSize: '22px', fontWeight: 800, lineHeight: 1 }}>
+                          {stat.value}
+                        </p>
+                        {stat.note && (
+                          <p style={{ color: '#6B7689', fontSize: '11px', marginTop: '4px' }}>
+                            Source: {stat.note}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Close */}
+                  <button
+                    onClick={() => setSelectedCountry(null)}
+                    style={{
+                      color: '#1F4C9C',
+                      fontSize: '12px',
+                      marginTop: '20px',
+                      cursor: 'pointer',
+                      background: 'none',
+                      border: 'none',
+                    }}
+                    className="hover:opacity-70 transition-opacity"
+                  >
+                    ← Back to globe
+                  </button>
+
+                </motion.div>
+              )}
+            </div>
+
+          </div>
+        </div>
+
       </section>
 
       {/* SECCIÓN RATIOS — THE WORKFORCE GAP */}

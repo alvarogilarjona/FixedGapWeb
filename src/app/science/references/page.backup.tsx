@@ -1,13 +1,6 @@
-'use client'
-
-import { useState } from 'react'
-import { ExternalLink, Search } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import {
-  Table, TableHeader, TableBody,
-  TableRow, TableHead, TableCell
-} from '@/components/ui/table'
 
 const COLORS = {
   heroBg: '#0A0F1E',
@@ -115,219 +108,6 @@ const references = [
   },
 ]
 
-const groundedRefs = [
-  {
-    id: '03',
-    title: 'Global, regional, and national burden of stroke and its risk factors, 1990–2021',
-    relevance: 'Stroke epidemiology',
-    year: '2024',
-    type: 'Clinical burden',
-    authors: 'GBD 2021 Stroke Collaborators',
-    journal: 'Stroke',
-    doi: 'https://www.ahajournals.org/doi/10.1161/STROKEAHA.124.048033',
-  },
-  {
-    id: '04',
-    title: 'World Stroke Organization (WSO): Global Stroke Fact Sheet 2025',
-    relevance: 'Lifetime stroke risk',
-    year: '2025',
-    type: 'Clinical burden',
-    authors: 'Feigin, V.L. et al.',
-    journal: 'International Journal of Stroke',
-    doi: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11786524/',
-  },
-  {
-    id: '05',
-    title: 'Heart Disease and Stroke Statistics — 2024 Update',
-    relevance: 'US stroke incidence',
-    year: '2024',
-    type: 'Epidemiology',
-    authors: 'Virani, S.S. et al.',
-    journal: 'Circulation',
-    doi: 'https://www.ahajournals.org/doi/10.1161/CIR.0000000000001209',
-  },
-  {
-    id: '06',
-    title: 'Adherence in Digital Mental Health Apps',
-    relevance: 'Digital adherence',
-    year: '2025',
-    type: 'Digital health',
-    authors: 'Morales, J. et al.',
-    journal: 'JMIR Human Factors',
-    doi: 'https://humanfactors.jmir.org/2025/1/e69464',
-  },
-  {
-    id: '07',
-    title: 'Effect of a Mobile Health App on Treatment Adherence in Rehabilitation',
-    relevance: 'Rehab engagement',
-    year: '2023',
-    type: 'Rehabilitation',
-    authors: 'Suso-Ribera, C. et al.',
-    journal: 'JMIR Rehabilitation',
-    doi: 'https://rehab.jmir.org/2023/1/e43507/',
-  },
-  {
-    id: '08',
-    title: 'Global, regional, and national burden of stroke',
-    relevance: 'Global stroke data',
-    year: '2026',
-    type: 'Clinical burden',
-    authors: 'Collaborators of The Lancet Neurology',
-    journal: 'The Lancet Neurology',
-    doi: 'https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(26)00093-1/fulltext',
-  },
-]
-
-const filterTypes = ['All', 'Clinical burden', 'Epidemiology', 'Digital health', 'Rehabilitation']
-
-function ClinicalEvidenceTable() {
-  const [search, setSearch] = useState('')
-  const [activeFilter, setActiveFilter] = useState('All')
-
-  const filtered = groundedRefs.filter(ref => {
-    const matchesSearch = search === '' ||
-      ref.title.toLowerCase().includes(search.toLowerCase()) ||
-      ref.relevance.toLowerCase().includes(search.toLowerCase()) ||
-      ref.authors.toLowerCase().includes(search.toLowerCase())
-    const matchesFilter = activeFilter === 'All' || ref.type === activeFilter
-    return matchesSearch && matchesFilter
-  })
-
-  return (
-    <div className="flex flex-col gap-4">
-
-      {/* Search + Filters */}
-      <div className="flex flex-col md:flex-row gap-3">
-
-        {/* Search */}
-        <div className="relative flex-1">
-          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search papers..."
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            style={{
-              backgroundColor: '#F7F9FC',
-              border: '1px solid #E8E0D0',
-              borderRadius: '8px',
-              padding: '8px 12px 8px 32px',
-              fontSize: '13px',
-              color: '#1A1F3C',
-              width: '100%',
-              outline: 'none',
-            }}
-          />
-        </div>
-
-        {/* Filters */}
-        <div className="flex gap-2 flex-wrap">
-          {filterTypes.map(filter => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              style={{
-                backgroundColor: activeFilter === filter ? '#1A1F3C' : '#F7F9FC',
-                color: activeFilter === filter ? '#FFFFFF' : '#6B7689',
-                border: '1px solid #E8E0D0',
-                borderRadius: '999px',
-                padding: '6px 14px',
-                fontSize: '12px',
-                fontWeight: 500,
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-              }}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Tabla */}
-      <div style={{
-        border: '1px solid #E8E0D0',
-        borderRadius: '12px',
-        overflow: 'hidden',
-      }}>
-        <Table>
-          <TableHeader style={{ backgroundColor: '#F7F9FC' }}>
-            <TableRow>
-              <TableHead className="h-12 px-3 text-left align-middle font-medium text-muted-foreground" style={{ color: '#6B7689', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', width: '40px' }}>No.</TableHead>
-              <TableHead className="h-12 px-3 text-left align-middle font-medium text-muted-foreground" style={{ color: '#6B7689', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Reference</TableHead>
-              <TableHead className="h-12 px-3 text-left align-middle font-medium text-muted-foreground" style={{ color: '#6B7689', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Relevance</TableHead>
-              <TableHead className="h-12 px-3 text-left align-middle font-medium text-muted-foreground" style={{ color: '#6B7689', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', width: '60px' }}>Year</TableHead>
-              <TableHead className="h-12 px-3 text-left align-middle font-medium text-muted-foreground" style={{ color: '#6B7689', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Type</TableHead>
-              <TableHead className="h-12 px-3 text-left align-middle font-medium text-muted-foreground" style={{ width: '40px' }}></TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filtered.length === 0 ? (
-              <TableRow>
-                <TableCell className="py-4 px-3 align-middle" colSpan={6} style={{ textAlign: 'center', color: '#6B7689', padding: '24px', fontSize: '14px' }}>
-                  No references found.
-                </TableCell>
-              </TableRow>
-            ) : (
-              filtered.map(ref => (
-                <TableRow key={ref.id} style={{ backgroundColor: '#FFFFFF', minHeight: '72px' }}>
-                  <TableCell className="py-4 px-3 align-middle" style={{ color: '#1F4C9C', fontWeight: 800, fontSize: '15px' }}>
-                    {ref.id}
-                  </TableCell>
-                  <TableCell className="py-4 px-3 align-middle">
-                    <p style={{ color: '#1A1F3C', fontSize: '14px', fontWeight: 600, lineHeight: 1.5, marginBottom: '4px' }}>
-                      {ref.title}
-                    </p>
-                    <p style={{ color: '#6B7689', fontSize: '13px' }}>
-                      {ref.authors} · {ref.journal}
-                    </p>
-                  </TableCell>
-                  <TableCell className="py-4 px-3 align-middle" style={{ color: '#6B7689', fontSize: '13px' }}>
-                    {ref.relevance}
-                  </TableCell>
-                  <TableCell className="py-4 px-3 align-middle" style={{ color: '#6B7689', fontSize: '13px' }}>
-                    {ref.year}
-                  </TableCell>
-                  <TableCell className="py-4 px-3 align-middle">
-                    <span style={{
-                      backgroundColor: '#EAF0FA',
-                      color: '#1F4C9C',
-                      fontSize: '12px',
-                      fontWeight: 600,
-                      padding: '5px 12px',
-                      borderRadius: '999px',
-                      whiteSpace: 'nowrap',
-                    }}>
-                      {ref.type}
-                    </span>
-                  </TableCell>
-                  <TableCell className="py-4 px-3 align-middle">
-                    <a
-                      href={ref.doi}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: '#1F4C9C' }}
-                      className="hover:opacity-70 transition-opacity"
-                    >
-                      <ExternalLink size={14} />
-                    </a>
-                  </TableCell>
-                </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
-      </div>
-
-      {/* Count */}
-      <p style={{ color: '#6B7689', fontSize: '12px' }}>
-        Showing {filtered.length} of {groundedRefs.length} references
-      </p>
-
-    </div>
-  )
-}
-
 export default function ReferencesPage() {
   const validated = references.filter(r => r.tag === 'validated')
   const grounded = references.filter(r => r.tag === 'grounded')
@@ -396,12 +176,16 @@ export default function ReferencesPage() {
             Strong theoretical foundation.
           </h2>
           <p style={{ color: COLORS.body }}
-            className="text-base mb-10 max-w-2xl leading-relaxed">
+            className="text-base mb-12 max-w-2xl leading-relaxed">
             These references provide the clinical rationale for our biomarkers.
             Direct validation in our specific implementation is ongoing.
           </p>
 
-          <ClinicalEvidenceTable />
+          <div className="flex flex-col gap-4">
+            {grounded.map(ref => (
+              <ReferenceCard key={ref.id} reference={ref} COLORS={COLORS} />
+            ))}
+          </div>
 
         </div>
       </section>

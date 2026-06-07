@@ -40,7 +40,7 @@ const steps = [
     title: 'Computer vision captures movement',
     subtitle: 'The technology',
     points: [
-      '12 hand biomarkers',
+      '13 clinical biomarkers',
       'Real-time landmark tracking',
       'No data leaves the device',
       'ML models process instantly',

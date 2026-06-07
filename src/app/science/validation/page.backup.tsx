@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { CheckCircle, Clock, MoveRight } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import { RoadmapCard } from '@/components/ui/roadmap-card'
 
 const COLORS = {
   heroBg: '#0A0F1E',
@@ -65,36 +64,36 @@ const scientificBasis = [
   },
 ]
 
-const milestones = [
+const currentStatus = [
   {
-    quarter: "Complete",
-    title: "Scientific foundation",
-    description: "All CORE metrics are grounded in peer-reviewed clinical literature and aligned with FMA-UE standards.",
-    status: "done" as const,
+    title: 'Scientific foundation',
+    description: 'All CORE metrics are grounded in peer-reviewed clinical literature. The measurement framework maps directly to FMA-UE items — the gold standard scale in stroke motor rehabilitation.',
+    status: 'validated',
+    tag: 'Complete',
   },
   {
-    quarter: "Complete",
-    title: "Technical implementation",
-    description: "The three games and their CORE metrics are built and functional. Internal testing confirms reliable signal capture.",
-    status: "done" as const,
+    title: 'Technical implementation',
+    description: 'The three games and their CORE metrics are built and functional. Internal testing confirms the system captures pinch precision, reach accuracy, wrist rotation, finger extension and movement smoothness reliably.',
+    status: 'validated',
+    tag: 'Complete',
   },
   {
-    quarter: "Literature-based",
-    title: "FMA-UE correlation ρ ≥ 0.92",
-    description: "Hand kinematics panel achieves strong Spearman correlation with the FMA-UE distal block based on published literature.",
-    status: "done" as const,
+    title: 'FMA-UE correlation ρ≈0.92',
+    description: 'Our hand kinematics panel achieves Spearman correlation ρ≈0.92 with the FMA-UE distal block based on published literature. Direct validation in our specific implementation with patients is our next step.',
+    status: 'validated',
+    tag: 'Literature-based',
   },
   {
-    quarter: "In progress",
-    title: "Clinical validation with real patients",
-    description: "Validation of our specific implementation with post-stroke patients under neurologist supervision is our immediate next step.",
-    status: "in-progress" as const,
+    title: 'Clinical validation with real patients',
+    description: 'Validation of our specific implementation with post-stroke patients under neurologist supervision is our immediate next step. We are actively seeking clinical partners.',
+    status: 'pending',
+    tag: 'In progress',
   },
   {
-    quarter: "Planned",
-    title: "Peer-reviewed publication",
-    description: "Publication of clinical validation results in a peer-reviewed journal following the first clinical study.",
-    status: "planned" as const,
+    title: 'Peer-reviewed publication',
+    description: 'Publication of clinical validation results in a peer-reviewed journal is planned following the completion of our first clinical study.',
+    status: 'pending',
+    tag: 'Planned',
   },
 ]
 
@@ -208,7 +207,48 @@ export default function ValidationPage() {
             Where we are today.
           </h2>
 
-          <RoadmapCard milestones={milestones} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {currentStatus.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                style={{
+                  backgroundColor: COLORS.cardBg,
+                  border: `1px solid ${COLORS.cardBorder}`,
+                  borderRadius: '16px',
+                  padding: '24px',
+                }}
+              >
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  backgroundColor: item.status === 'validated' ? COLORS.validatedBg : COLORS.pendingBg,
+                  color: item.status === 'validated' ? COLORS.validatedColor : COLORS.pendingColor,
+                  fontSize: '11px',
+                  fontWeight: 700,
+                  padding: '4px 10px',
+                  borderRadius: '999px',
+                  marginBottom: '16px',
+                }}>
+                  {item.status === 'validated'
+                    ? <CheckCircle size={12} />
+                    : <Clock size={12} />
+                  }
+                  {item.tag}
+                </div>
+                <h3 style={{ color: COLORS.headline, fontSize: '17px', fontWeight: 700, marginBottom: '10px' }}>
+                  {item.title}
+                </h3>
+                <p style={{ color: COLORS.body, fontSize: '13px', lineHeight: 1.7 }}>
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
 
         </div>
       </section>

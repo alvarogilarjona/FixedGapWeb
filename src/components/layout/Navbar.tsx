@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Cpu,
   Activity,
@@ -47,7 +48,7 @@ const menuItems: MenuItem[] = [
       {
         icon: <Activity className="w-5 h-5" />,
         label: 'Biomarkers',
-        description: '14 clinical biomarkers — MVP to roadmap',
+        description: '13 clinical biomarkers — MVP to roadmap',
         href: '/product/biomarkers',
       },
       {
@@ -96,9 +97,9 @@ const menuItems: MenuItem[] = [
       },
       {
         icon: <GraduationCap className="w-5 h-5" />,
-        label: 'Manifesto',
+        label: 'Behind FixedGap',
         description: 'Why we exist and what drives us',
-        href: '/company/manifesto',
+        href: '/company/behind-fixedgap',
       },
     ],
   },
@@ -110,7 +111,7 @@ const menuItems: MenuItem[] = [
       {
         icon: <FlaskConical className="w-5 h-5" />,
         label: 'Clinical Validation',
-        description: 'Evidence base — ρ=0.92 correlation with FMA-UE',
+        description: 'Our validation framework and roadmap',
         href: '/science/validation',
       },
       {
@@ -146,11 +147,13 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-6 h-full">
         <div className="flex h-full items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <img
-              src="/og-image.jpg"
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logonuevo.jpeg"
               alt="FixedGap"
-              className="h-12 w-auto"
+              width={32}
+              height={32}
+              style={{ objectFit: 'contain' }}
             />
             <span className="text-2xl font-bold text-brand-navy">
               FixedGap
@@ -234,12 +237,16 @@ export default function Navbar() {
                           <div className="grid grid-cols-2 gap-6 flex-1">
                             {/* Video 1 - Our Story */}
                             <div>
-                              <div className="relative rounded-xl overflow-hidden cursor-pointer group">
+                              <div className="relative rounded-xl overflow-hidden">
                                 <div className="bg-brand-navy aspect-video w-full flex items-center justify-center" style={{ minHeight: '240px' }}>
-                                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-                                  <button className="relative z-10 flex items-center gap-2 bg-white/90 text-brand-navy text-sm font-semibold px-5 py-3 rounded-full hover:bg-white transition-colors">
-                                    ▶ Watch Video
-                                  </button>
+                                  <p style={{
+                                    color: '#98A2B3',
+                                    fontSize: '11px',
+                                    fontWeight: 500,
+                                    textAlign: 'center',
+                                  }}>
+                                    Video not available yet
+                                  </p>
                                 </div>
                               </div>
                               <p className="text-sm text-brand-navy font-semibold mt-3">
@@ -252,22 +259,16 @@ export default function Navbar() {
 
                             {/* Video 2 - See it in action */}
                             <div>
-                              <div
-                                className="relative rounded-xl overflow-hidden cursor-pointer group"
-                                onClick={() => setIsVideoModalOpen(true)}
-                              >
-                                <video
-                                  className="w-full h-full object-cover aspect-video"
-                                  style={{ minHeight: '240px' }}
-                                  muted
-                                  playsInline
-                                >
-                                  <source src="/demo.mp4" type="video/mp4" />
-                                </video>
-                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                                  <button className="relative z-10 flex items-center gap-2 bg-white/90 text-brand-navy text-sm font-semibold px-5 py-3 rounded-full hover:bg-white transition-colors">
-                                    ▶ Watch Video
-                                  </button>
+                              <div className="relative rounded-xl overflow-hidden">
+                                <div className="bg-brand-navy aspect-video w-full flex items-center justify-center" style={{ minHeight: '240px' }}>
+                                  <p style={{
+                                    color: '#98A2B3',
+                                    fontSize: '11px',
+                                    fontWeight: 500,
+                                    textAlign: 'center',
+                                  }}>
+                                    Video not available yet
+                                  </p>
                                 </div>
                               </div>
                               <p className="text-sm text-brand-navy font-semibold mt-3">
@@ -314,7 +315,7 @@ export default function Navbar() {
                             {/* Section 2: FixedGap Logo */}
                             <div className="w-[180px] shrink-0 border-r border-brand-border pr-6 flex flex-col items-center justify-center">
                               <img
-                                src="/og-image.jpg"
+                                src="/logonuevo.jpeg"
                                 alt="FixedGap"
                                 className="w-full h-auto rounded-lg shadow-md"
                               />
@@ -367,7 +368,7 @@ export default function Navbar() {
                             {/* Section 2: FixedGap Logo */}
                             <div className="w-[180px] shrink-0 border-r border-brand-border pr-6 flex flex-col items-center justify-center">
                               <img
-                                src="/og-image.jpg"
+                                src="/logonuevo.jpeg"
                                 alt="FixedGap"
                                 className="w-full h-auto rounded-lg shadow-md"
                               />

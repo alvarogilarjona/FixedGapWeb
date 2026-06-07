@@ -54,7 +54,7 @@ export default function TeamPreview() {
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-0"
           style={{ borderTop: `1px solid ${COLORS.divider}`, borderBottom: `1px solid ${COLORS.divider}` }}>
           {[
-            { number: '6', label: 'Co-founders' },
+            { number: '5', label: 'Co-founders' },
             { number: '3', label: 'Universities' },
             { number: '2', label: 'Countries' },
             { number: '50', label: 'Countries competing' },
