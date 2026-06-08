@@ -1347,7 +1347,7 @@ export default function ScrollCanvas() {
                       <div className="absolute inset-0 rounded-full bg-linear-to-b from-amber-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
                       <div className="relative w-full h-full rounded-full border border-amber-500/30 bg-black/50 backdrop-blur-md shadow-[0_0_15px_rgba(251,191,36,0.2)] flex items-center justify-center overflow-hidden group-hover:border-amber-500/60 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all duration-500">
                         <div className="absolute top-[10%] left-0 right-0 h-px bg-amber-400/30 blur-[0.5px]"></div>
-                        <img src="/fotoLuis.jpg" alt="Luis" className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-500" />
+                        <img src="/luisNueva.jpeg" alt="Luis" className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-500" />
                       </div>
                     </div>
                     <p className="text-amber-500/80 text-sm tracking-widest uppercase font-bold">Strategy & Ventures</p>

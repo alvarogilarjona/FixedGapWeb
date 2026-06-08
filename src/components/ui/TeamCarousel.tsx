@@ -36,7 +36,7 @@ const team: TeamMember[] = [
     name: "Luis Molina Salvador",
     title: "Co-founder, Strategy",
     description: "Luis leads strategy, fundraising, partnerships, go-to-market, investor outreach, and venture execution at Fixed Gap. He is a Jr Software Developer at Amazon and is pursuing a double degree in Computer Engineering and Business Administration at Universidad Complutense de Madrid. His background combines software, business, finance, and AI, including experience as an AI Dev at Grupo Oesía and as an equity analyst at Arcanix Fund. At Fixed Gap, Luis focuses on turning the product into an investable company: defining the narrative, building partnerships, preparing investor materials, and driving commercial strategy.",
-    imageUrl: "/team/luis.jpg",
+    imageUrl: "/luisNueva.jpeg",
     linkedinUrl: "https://www.linkedin.com/in/luis-molina-salvador/",
     githubUrl: "https://github.com/34lumo",
   },
