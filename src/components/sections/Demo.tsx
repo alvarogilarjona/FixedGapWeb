@@ -58,13 +58,16 @@ export default function Demo() {
             position: 'relative',
           }}
         >
-          <video
-            controls
-            playsInline
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          >
-            <source src="/our-story.mp4" type="video/mp4" />
-          </video>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/TYvQgTtPtYA"
+            title="FixedGap — Our Story"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{ borderRadius: '16px', width: '100%', aspectRatio: '16/9', border: 'none' }}
+          />
         </motion.div>
 
       </div>

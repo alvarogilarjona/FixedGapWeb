@@ -667,14 +667,16 @@ export default function Navbar() {
               ✕
             </button>
 
-            <video
-              controls
-              autoPlay
-              playsInline
-              style={{ width: '100%', display: 'block' }}
-            >
-              <source src="/our-story.mp4" type="video/mp4" />
-            </video>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/TYvQgTtPtYA?autoplay=1"
+              title="FixedGap — Our Story"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ width: '100%', aspectRatio: '16/9', border: 'none', display: 'block' }}
+            />
           </div>
         </div>
       )}
