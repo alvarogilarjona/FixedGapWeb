@@ -235,38 +235,38 @@ export default function Navbar() {
                           </div>
 
                           {/* Right Column - Video Thumbnails */}
-                          <div className="grid grid-cols-2 gap-6 flex-1">
+                          <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: '1fr 1fr',
+                            gap: '12px',
+                            flex: 1,
+                          }}>
                             {/* Video 1 - Our Story */}
                             <div>
                               <div
                                 onClick={() => setVideoOpen(true)}
                                 style={{
-                                  position: 'relative',
                                   borderRadius: '8px',
                                   overflow: 'hidden',
                                   aspectRatio: '16/9',
                                   backgroundColor: '#0A0F1E',
                                   cursor: 'pointer',
-                                  minHeight: '240px',
+                                  position: 'relative',
+                                  flexShrink: 0,
                                 }}
-                                className="group"
                               >
-                                {/* Overlay con botón play */}
                                 <div style={{
                                   position: 'absolute',
                                   inset: 0,
                                   display: 'flex',
                                   alignItems: 'center',
                                   justifyContent: 'center',
-                                  backgroundColor: 'rgba(0,0,0,0.4)',
-                                }}
-                                className="group-hover:bg-black/30 transition-colors"
-                                >
+                                }}>
                                   <div style={{
                                     backgroundColor: 'rgba(255,255,255,0.9)',
                                     borderRadius: '999px',
-                                    padding: '8px 14px',
-                                    fontSize: '12px',
+                                    padding: '6px 12px',
+                                    fontSize: '11px',
                                     fontWeight: 600,
                                     color: '#1A1F3C',
                                   }}>
@@ -284,17 +284,19 @@ export default function Navbar() {
 
                             {/* Video 2 - See it in action */}
                             <div>
-                              <div className="relative rounded-xl overflow-hidden">
-                                <div className="bg-brand-navy aspect-video w-full flex items-center justify-center" style={{ minHeight: '240px' }}>
-                                  <p style={{
-                                    color: '#98A2B3',
-                                    fontSize: '11px',
-                                    fontWeight: 500,
-                                    textAlign: 'center',
-                                  }}>
-                                    Video not available yet
-                                  </p>
-                                </div>
+                              <div style={{
+                                borderRadius: '8px',
+                                overflow: 'hidden',
+                                aspectRatio: '16/9',
+                                backgroundColor: '#141B2D',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                flexShrink: 0,
+                              }}>
+                                <p style={{ color: '#6B7689', fontSize: '11px' }}>
+                                  Video not available yet
+                                </p>
                               </div>
                               <p className="text-sm text-brand-navy font-semibold mt-3">
                                 See it in action
