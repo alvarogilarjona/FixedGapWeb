@@ -141,7 +141,6 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileOpenMenu, setMobileOpenMenu] = useState<string | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [videoOpen, setVideoOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-border h-20">
@@ -243,47 +242,6 @@ export default function Navbar() {
                           }}>
                             {/* Video 1 - Our Story */}
                             <div>
-                              <div
-                                onClick={() => setVideoOpen(true)}
-                                style={{
-                                  borderRadius: '8px',
-                                  overflow: 'hidden',
-                                  aspectRatio: '16/9',
-                                  backgroundColor: '#0A0F1E',
-                                  cursor: 'pointer',
-                                  position: 'relative',
-                                  flexShrink: 0,
-                                }}
-                              >
-                                <div style={{
-                                  position: 'absolute',
-                                  inset: 0,
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                }}>
-                                  <div style={{
-                                    backgroundColor: 'rgba(255,255,255,0.9)',
-                                    borderRadius: '999px',
-                                    padding: '6px 12px',
-                                    fontSize: '11px',
-                                    fontWeight: 600,
-                                    color: '#1A1F3C',
-                                  }}>
-                                    Watch Video
-                                  </div>
-                                </div>
-                              </div>
-                              <p className="text-sm text-brand-navy font-semibold mt-3">
-                                Our Story
-                              </p>
-                              <p className="text-sm text-brand-muted mt-1">
-                                The problem we are solving
-                              </p>
-                            </div>
-
-                            {/* Video 2 - See it in action */}
-                            <div>
                               <div style={{
                                 borderRadius: '8px',
                                 overflow: 'hidden',
@@ -297,6 +255,59 @@ export default function Navbar() {
                                 <p style={{ color: '#6B7689', fontSize: '11px' }}>
                                   Video not available yet
                                 </p>
+                              </div>
+                              <p className="text-sm text-brand-navy font-semibold mt-3">
+                                Our Story
+                              </p>
+                              <p className="text-sm text-brand-muted mt-1">
+                                The problem we are solving
+                              </p>
+                            </div>
+
+                            {/* Video 2 - See it in action */}
+                            <div>
+                              <div
+                                onClick={() => setIsVideoModalOpen(true)}
+                                style={{
+                                  borderRadius: '8px',
+                                  overflow: 'hidden',
+                                  aspectRatio: '16/9',
+                                  backgroundColor: '#141B2D',
+                                  cursor: 'pointer',
+                                  position: 'relative',
+                                  flexShrink: 0,
+                                }}
+                              >
+                                <video
+                                  style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                  }}
+                                  muted
+                                  playsInline
+                                >
+                                  <source src="/DemoTecnica.mp4" type="video/mp4" />
+                                </video>
+                                <div style={{
+                                  position: 'absolute',
+                                  inset: 0,
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  backgroundColor: 'rgba(0,0,0,0.3)',
+                                }}>
+                                  <div style={{
+                                    backgroundColor: 'rgba(255,255,255,0.9)',
+                                    borderRadius: '999px',
+                                    padding: '6px 12px',
+                                    fontSize: '11px',
+                                    fontWeight: 600,
+                                    color: '#1A1F3C',
+                                  }}>
+                                    Watch Video
+                                  </div>
+                                </div>
                               </div>
                               <p className="text-sm text-brand-navy font-semibold mt-3">
                                 See it in action
@@ -599,7 +610,7 @@ export default function Navbar() {
                 autoPlay
                 playsInline
               >
-                <source src="/demo.mp4" type="video/mp4" />
+                <source src="/DemoTecnica.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -623,65 +634,6 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Modal del vídeo Our Story */}
-      {videoOpen && (
-        <div
-          onClick={() => setVideoOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0,0,0,0.85)',
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '24px',
-          }}
-        >
-          <div
-            onClick={e => e.stopPropagation()}
-            style={{
-              width: '100%',
-              maxWidth: '900px',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              position: 'relative',
-            }}
-          >
-            {/* Botón cerrar */}
-            <button
-              onClick={() => setVideoOpen(false)}
-              style={{
-                position: 'absolute',
-                top: '12px',
-                right: '12px',
-                zIndex: 10,
-                backgroundColor: 'rgba(0,0,0,0.5)',
-                color: '#FFFFFF',
-                border: 'none',
-                borderRadius: '999px',
-                width: '32px',
-                height: '32px',
-                cursor: 'pointer',
-                fontSize: '16px',
-              }}
-            >
-              ✕
-            </button>
-
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/TYvQgTtPtYA?autoplay=1"
-              title="FixedGap — Our Story"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{ width: '100%', aspectRatio: '16/9', border: 'none', display: 'block' }}
-            />
-          </div>
-        </div>
-      )}
     </nav>
   );
 }

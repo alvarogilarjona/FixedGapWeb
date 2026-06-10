@@ -50,19 +50,29 @@ export default function DemoPage() {
             The problem we are solving.
           </h2>
           <div style={{
-            backgroundColor: '#000000',
+            backgroundColor: '#141B2D',
             borderRadius: '16px',
             aspectRatio: '16/9',
-            overflow: 'hidden',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '12px',
             border: '1px solid #1E2A40',
           }}>
-            <video
-              controls
-              playsInline
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            >
-              <source src="/our-story.mp4" type="video/mp4" />
-            </video>
+            <p style={{
+              color: '#FFFFFF',
+              fontSize: '18px',
+              fontWeight: 600
+            }}>
+              Video not available yet.
+            </p>
+            <p style={{
+              color: '#98A2B3',
+              fontSize: '14px'
+            }}>
+              Coming soon.
+            </p>
           </div>
           <div style={{ marginTop: '24px' }}>
             <p
@@ -106,29 +116,19 @@ export default function DemoPage() {
             FixedGap game walkthrough.
           </h2>
           <div style={{
-            backgroundColor: '#141B2D',
+            backgroundColor: '#000000',
             borderRadius: '16px',
             aspectRatio: '16/9',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '12px',
+            overflow: 'hidden',
             border: '1px solid #1E2A40',
           }}>
-            <p style={{
-              color: '#FFFFFF',
-              fontSize: '18px',
-              fontWeight: 600
-            }}>
-              Video not available yet.
-            </p>
-            <p style={{
-              color: '#98A2B3',
-              fontSize: '14px'
-            }}>
-              Coming soon.
-            </p>
+            <video
+              controls
+              playsInline
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            >
+              <source src="/DemoTecnica.mp4" type="video/mp4" />
+            </video>
           </div>
           <div style={{ marginTop: '24px' }}>
             <p

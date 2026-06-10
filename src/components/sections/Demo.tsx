@@ -56,18 +56,26 @@ export default function Demo() {
             aspectRatio: '16/9',
             backgroundColor: COLORS.placeholderBg,
             position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '12px',
           }}
         >
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/TYvQgTtPtYA"
-            title="FixedGap — Our Story"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            style={{ borderRadius: '16px', width: '100%', aspectRatio: '16/9', border: 'none' }}
-          />
+          <p style={{
+            color: '#FFFFFF',
+            fontSize: '18px',
+            fontWeight: 600
+          }}>
+            Video not available yet.
+          </p>
+          <p style={{
+            color: '#98A2B3',
+            fontSize: '14px'
+          }}>
+            Coming soon.
+          </p>
         </motion.div>
 
       </div>
