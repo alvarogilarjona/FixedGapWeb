@@ -50,29 +50,20 @@ export default function DemoPage() {
             The problem we are solving.
           </h2>
           <div style={{
-            backgroundColor: '#141B2D',
             borderRadius: '16px',
+            overflow: 'hidden',
             aspectRatio: '16/9',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '12px',
-            border: '1px solid #1E2A40',
           }}>
-            <p style={{
-              color: '#FFFFFF',
-              fontSize: '18px',
-              fontWeight: 600
-            }}>
-              Video not available yet.
-            </p>
-            <p style={{
-              color: '#98A2B3',
-              fontSize: '14px'
-            }}>
-              Coming soon.
-            </p>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/TYvQgTtPtYA"
+              title="FixedGap — Our Story"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ border: 'none', display: 'block' }}
+            />
           </div>
           <div style={{ marginTop: '24px' }}>
             <p
@@ -150,6 +141,50 @@ export default function DemoPage() {
               }}
             >
               Zero hardware. Zero friction.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Maria */}
+      <section style={{ backgroundColor: '#FFFFFF' }} className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <span
+            style={{ color: '#1F4C9C' }}
+            className="text-xs font-semibold tracking-widest uppercase"
+          >
+            Meet Maria
+          </span>
+          <h2
+            style={{ color: '#1A1F3C' }}
+            className="text-3xl md:text-4xl font-bold mt-4 mb-8 max-w-2xl"
+          >
+            A story about the gap we are closing.
+          </h2>
+          <div style={{
+            borderRadius: '16px',
+            overflow: 'hidden',
+            aspectRatio: '16/9',
+          }}>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/UqnF2CcWmIo"
+              title="FixedGap — Meet Maria"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ border: 'none', display: 'block' }}
+            />
+          </div>
+
+          {/* Frase debajo */}
+          <div style={{ marginTop: '24px' }}>
+            <p style={{ color: '#1A1F3C', fontSize: '22px', fontWeight: 700, lineHeight: 1.3 }}>
+              Maria&apos;s recovery happens every day.
+            </p>
+            <p style={{ color: '#6B7689', fontSize: '15px', marginTop: '8px' }}>
+              Her clinical team should see it too.
             </p>
           </div>
         </div>

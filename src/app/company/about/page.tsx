@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
@@ -354,6 +355,97 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* From Madrid to Boston */}
+      <section style={{ backgroundColor: '#FFFFFF' }} className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            {/* Columna izquierda — texto */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <span style={{ color: '#1F4C9C' }}
+                className="text-xs font-semibold tracking-widest uppercase">
+                Where we are today
+              </span>
+
+              <h2 style={{ color: '#1A1F3C' }}
+                className="text-3xl md:text-4xl font-bold mt-4 mb-6 leading-tight">
+                From Madrid to Boston.
+              </h2>
+
+              <p style={{ color: '#3F4A5E' }}
+                className="text-base leading-relaxed mb-4">
+                In June 2026, FixedGap reached the global final of the Harvard
+                Health Systems Innovation Lab Hackathon — held at Pillar VC&apos;s
+                offices in Boston. Competing against teams from 50 hubs worldwide,
+                the team secured{' '}
+                <span style={{ color: '#1A1F3C', fontWeight: 700 }}>
+                  2nd place globally
+                </span>
+                , judged by Boston investment funds and experts from the Harvard
+                T.H. Chan School of Public Health.
+              </p>
+
+              <p style={{ color: '#3F4A5E' }}
+                className="text-base leading-relaxed">
+                Five days in Boston, supported by the Real Colegio Complutense
+                at Harvard, included visits to Harvard, MIT, and Massachusetts
+                General Hospital — shaping the next chapter: clinical validation
+                and expansion beyond stroke rehabilitation.
+              </p>
+
+              {/* Badge */}
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                border: '1px solid #E8E0D0',
+                borderRadius: '999px',
+                padding: '8px 18px',
+                backgroundColor: '#EAF0FA',
+                marginTop: '28px',
+              }}>
+                <span style={{ color: '#1A1F3C', fontSize: '13px', fontWeight: 600 }}>
+                  🏆 2nd place — Harvard HSIL Hackathon 2026
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Columna derecha — marco para foto */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              style={{
+                borderRadius: '20px',
+                overflow: 'hidden',
+                aspectRatio: '4/3',
+                backgroundColor: '#F7F9FC',
+                border: '1px solid #E8E0D0',
+                position: 'relative',
+              }}
+            >
+              <Image
+                src="/about/pilar.jpeg"
+                alt="FixedGap team at Pillar VC - Harvard HSIL Global Final in Boston"
+                fill
+                style={{ objectFit: 'cover' }}
+                quality={95}
+                priority
+              />
+            </motion.div>
+
+          </div>
+
         </div>
       </section>
 

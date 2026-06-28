@@ -5,6 +5,121 @@ Actualizar este fichero después de cada cambio importante.
 
 ---
 
+## [/company/media] — 2026-06-26
+### Añadido
+- Página /company/media con 3 artículos de prensa real
+- Tribuna Complutense x2 (22 junio 2026, 13 abril 2026)
+- The Objective x1 (21 abril 2026)
+- Links verificados a artículos originales
+- Cards clickeables con hover shadow
+- Logos de medios: UCM logo para Tribuna Complutense
+- Caja de logo 40x40px con fondo blanco y borde
+- Nombre de la fuente junto al logo (sin badge)
+- Fecha en formato "Month DD, YYYY"
+- Icono Newspaper añadido al mega menú de Company
+- Hero: "In the press."
+### Pendiente
+- Añadir logo de The Objective en /public/media/the-objective-logo.png
+
+---
+
+## [/contact/who-we-work-with] — 2026-06-26
+### Añadido
+- Página /contact/who-we-work-with con perfiles + carrusel de partners
+- Componente Gallery6 con embla-carousel-react
+- Componente carousel.tsx (base de shadcn)
+- 3 perfiles: Neurologists & Clinicians, Investors, Partners & Researchers
+- 6 partners en carrusel: AWS, Saturno, RCC Harvard, Bosch, Ayuntamiento Madrid, Comunidad Madrid
+- Flechas de navegación con estado disabled cuando no hay scroll disponible
+- Fondo beige (#F5F0E8) para la sección de partners
+### Instalado
+- embla-carousel-react
+- @radix-ui/react-slot
+- class-variance-authority
+### Nota
+- Logos apuntan a /logos/ (ya existen en el proyecto)
+
+---
+
+## [/contact/faq] — 2026-06-26
+### Añadido
+- Página /contact/faq independiente con sistema de acordeón
+- 8 preguntas frecuentes con animaciones Framer Motion
+- Primer item abierto por defecto (openIndex: 0)
+- CTA final "Didn't find what you were looking for?" → /contact
+- Hero: "Quick answers" con descripción
+- Fondo beige (#F5F0E8) para la sección FAQ
+- Iconos Plus/Minus para indicar estado abierto/cerrado
+- Border azul (#1F4C9C) en item activo
+
+---
+
+## [/contact — simplificado] — 2026-06-26
+### Modificado
+- Eliminadas secciones FAQ y "Who should reach out"
+- Página ahora solo: Hero + Formulario + Where we are
+- Hero simplificado con h1 grande (clamp 3rem-6rem)
+- Badge actualizado a "🏆 2nd place — Harvard HSIL Hackathon 2026"
+- Texto actualizado: "2nd place globally" (antes "Top 20")
+- Imports limpios: eliminados Stethoscope, TrendingUp, FlaskConical
+### Eliminado
+- Array `profiles` (3 perfiles de audiencia)
+- Array `faqs` (5 preguntas frecuentes)
+- Variables de color no utilizadas (profileBg, faqBg, etc.)
+### Pendiente
+- Contenido eliminado se moverá a /contact/faq y /contact/who-we-work-with
+
+---
+
+## [Navbar — mega menú Contact] — 2026-06-26
+### Añadido
+- Mega menú de Contact con 3 items: Get in Touch, FAQ, Who We Work With
+- Logo estático de FixedGap en el centro del panel (sin animaciones)
+- Mismo estilo visual que los mega menús existentes (Company/Science)
+- Contact removido de directItems y añadido a menuItems
+- Iconos: Mail, HelpCircle, Users
+### Pendiente
+- Crear páginas /contact/faq y /contact/who-we-work-with
+
+---
+
+## [Our Story — vídeo añadido] — 2026-06-26
+### Añadido
+- Vídeo "Our Story" (TYvQgTtPtYA) añadido en landing page (componente Demo)
+- Vídeo "Our Story" añadido en página /demo
+- Thumbnail "Our Story" clickeable en mega menú Demo con modal
+- Estado `ourStoryVideoOpen` añadido al navbar
+### Modificado
+- Mega menú Demo ampliado: minWidth 1200px, padding p-10
+- Emoji eliminado del botón "Watch Video" de Maria
+
+---
+
+## [Meet Maria — vídeo añadido] — 2026-06-25
+### Añadido
+- Sección "Meet Maria" en /demo con embed de YouTube (UqnF2CcWmIo)
+- Tercer thumbnail "Meet Maria" en mega menú Demo (grid 3 columnas)
+- Modal con vídeo embed al hacer click en thumbnail
+- Frase: "Maria's recovery happens every day. Her clinical team should see it too."
+- Estado `mariaVideoOpen` añadido al navbar
+
+---
+
+## [/company/about — sección Boston] — 2026-06-25
+### Añadido
+- Sección "From Madrid to Boston" al final de la página
+- Cuenta el 2nd place en la final de Harvard HSIL en Pillar VC
+- Marco de foto preparado para sustituir cuando haya imagen
+- Badge "🏆 2nd place — Harvard HSIL Hackathon 2026"
+- Fondo oscuro (#0A0F1E) con layout dos columnas
+- Animaciones Framer Motion con slide desde izquierda/derecha
+- Label "Where we are today" en azul brand
+### Modificado
+- Fondo cambiado a blanco (#FFFFFF) con colores ajustados
+- Foto pilar.jpeg añadida usando componente Image de Next.js con quality=95
+
+---
+
 ## [Navbar — vídeo Our Story con modal] — 2026-06-08
 ### Modificado
 - Mega menu Demo: vídeo Our Story reemplazado por thumbnail con botón "Watch Video" (sin emoticono)

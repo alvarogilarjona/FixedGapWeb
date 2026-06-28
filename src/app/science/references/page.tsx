@@ -26,9 +26,9 @@ const COLORS = {
   tagValidatedBg: '#E8F3EC',
   tagGrounded: '#1F4C9C',
   tagGroundedBg: '#EAF0FA',
-  transparencyBg: '#0A0F1E',
-  transparencyText: '#FFFFFF',
-  transparencyMuted: '#98A2B3',
+  transparencyBg: '#F7F9FC',
+  transparencyText: '#1A1F3C',
+  transparencyMuted: '#6B7689',
   divider: '#E8E0D0',
 }
 

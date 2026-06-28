@@ -204,7 +204,7 @@ export default function PricingPage() {
       </section>
 
       {/* CTA FINAL */}
-      <section style={{ backgroundColor: COLORS.sectionAlt }} className="py-20 px-6">
+      <section style={{ backgroundColor: '#F7F9FC' }} className="py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 style={{ color: COLORS.headline }}
             className="text-3xl md:text-4xl font-bold leading-tight">

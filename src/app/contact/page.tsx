@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Stethoscope, TrendingUp, FlaskConical, MoveRight } from 'lucide-react'
+import { MoveRight } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
@@ -10,9 +10,6 @@ const COLORS = {
   heroText: '#FFFFFF',
   heroMuted: '#98A2B3',
   label: '#1F4C9C',
-  sectionBg: '#FFFFFF',
-  headline: '#1A1F3C',
-  body: '#6B7689',
   formBg: '#141B2D',
   formBorder: '#1E2A40',
   formBorderFocus: '#1F4C9C',
@@ -21,61 +18,10 @@ const COLORS = {
   inputPlaceholder: '#6B7689',
   btnBg: '#1F4C9C',
   btnText: '#FFFFFF',
-  profileBg: '#F7F9FC',
-  profileBorder: '#E8E0D0',
-  profileIcon: '#1F4C9C',
-  profileIconBg: '#EAF0FA',
-  profileTitle: '#1A1F3C',
-  profileBody: '#6B7689',
-  faqBg: '#E8E8E8',
-  faqQuestion: '#1A1F3C',
-  faqAnswer: '#6B7689',
-  faqBorder: '#E8E0D0',
   locationBg: '#0A0F1E',
   locationText: '#FFFFFF',
   locationMuted: '#98A2B3',
 }
-
-const profiles = [
-  {
-    icon: Stethoscope,
-    title: 'Neurologists & Clinicians',
-    body: 'Interested in monitoring your patients between visits with objective daily data.'
-  },
-  {
-    icon: TrendingUp,
-    title: 'Investors',
-    body: 'Looking to back the future of neurological rehabilitation technology.'
-  },
-  {
-    icon: FlaskConical,
-    title: 'Partners & Researchers',
-    body: 'Want to collaborate, run a clinical pilot, or explore research opportunities.'
-  },
-]
-
-const faqs = [
-  {
-    question: 'Do I need to buy any hardware or sensors?',
-    answer: 'No. FixedGap uses only the camera already on your computer, tablet, or smartphone. No wearables, no VR headset, no specialized equipment.'
-  },
-  {
-    question: 'What clinical metrics does it capture?',
-    answer: 'Reaction time, eye-hand latency, movement accuracy, coordination score, completion time, error rate, and longitudinal trends. Enough for clinicians to assess whether a patient is improving, stable, or deteriorating.'
-  },
-  {
-    question: 'Is it for clinics or for home use?',
-    answer: 'Both. Patients play a short game at home while clinicians monitor recovery trends from their dashboard. It extends care beyond the clinic without adding workload.'
-  },
-  {
-    question: 'Who pays for FixedGap?',
-    answer: 'Hospitals, rehabilitation centers, and clinics subscribe. Patients are users, not payers. Future phases may include value-based contracts with insurers.'
-  },
-  {
-    question: 'What conditions does it support?',
-    answer: 'Initially, post-stroke motor rehabilitation. The same model can extend to Parkinson\'s disease, multiple sclerosis, and other conditions with neurological motor deficits.'
-  },
-]
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -98,26 +44,22 @@ export default function ContactPage() {
 
       {/* HERO */}
       <section style={{ backgroundColor: COLORS.heroBg }}
-        className="pt-40 pb-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <span style={{ color: COLORS.label }}
-            className="text-xs font-semibold tracking-widest uppercase">
-            Contact
-          </span>
-          <h1 style={{ color: COLORS.heroText }}
-            className="text-5xl md:text-6xl font-bold mt-4 leading-tight max-w-2xl">
+        className="pt-40 pb-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <h1 style={{
+            color: COLORS.heroText,
+            fontSize: 'clamp(3rem, 7vw, 6rem)',
+            fontWeight: 800,
+            lineHeight: 1,
+            letterSpacing: '-0.03em',
+          }}>
             Let's talk.
           </h1>
-          <p style={{ color: COLORS.heroMuted }}
-            className="text-lg mt-6 max-w-xl leading-relaxed">
-            Whether you are a neurologist, an investor, or just curious —
-            we would love to hear from you.
-          </p>
         </div>
       </section>
 
       {/* FORMULARIO */}
-      <section style={{ backgroundColor: COLORS.locationBg }}
+      <section style={{ backgroundColor: COLORS.heroBg }}
         className="py-24 px-6">
         <div className="max-w-3xl mx-auto">
 
@@ -263,49 +205,21 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ RÁPIDO */}
-      <section style={{ backgroundColor: COLORS.faqBg }} className="py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-
-          <span style={{ color: COLORS.label }}
-            className="text-xs font-semibold tracking-widest uppercase">
-            Quick answers
-          </span>
-
-          <div className="mt-10 flex flex-col gap-4">
-            {faqs.map((faq, index) => (
-              <div key={index} style={{
-                borderBottom: index < faqs.length - 1 ? `1px solid ${COLORS.faqBorder}` : 'none',
-                paddingBottom: '20px',
-              }}>
-                <h3 style={{ color: COLORS.faqQuestion, fontSize: '16px', fontWeight: 700, marginBottom: '8px' }}>
-                  {faq.question}
-                </h3>
-                <p style={{ color: COLORS.faqAnswer, fontSize: '14px', lineHeight: 1.7 }}>
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* UBICACIÓN */}
-      <section style={{ backgroundColor: COLORS.locationBg }} className="py-16 px-6">
+      {/* WHERE WE ARE */}
+      <section style={{ backgroundColor: '#FFFFFF' }} className="py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
 
-          <p style={{ color: COLORS.locationMuted, fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px' }}>
+          <p style={{ color: '#1F4C9C', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px' }}>
             Where we are
           </p>
 
-          <h3 style={{ color: COLORS.locationText, fontSize: '28px', fontWeight: 700, marginBottom: '8px' }}>
+          <h3 style={{ color: '#1A1F3C', fontSize: '28px', fontWeight: 700, marginBottom: '8px' }}>
             Based in Madrid.<br />Building globally.
           </h3>
 
-          <p style={{ color: COLORS.locationMuted, fontSize: '14px', marginTop: '12px', lineHeight: 1.6 }}>
+          <p style={{ color: '#6B7689', fontSize: '14px', marginTop: '12px', lineHeight: 1.6 }}>
             Born at the Harvard HSIL Hackathon 2026.<br />
-            Top 20 globally out of 50 countries.
+            2nd place globally.
           </p>
 
           <div style={{
@@ -313,57 +227,16 @@ export default function ContactPage() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            border: '1px solid #2E3757',
+            border: '1px solid #E8E0D0',
             borderRadius: '999px',
             padding: '6px 16px',
-            backgroundColor: '#1A2035',
+            backgroundColor: '#EAF0FA',
           }}>
-            <span style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 600 }}>
-              🎓 Harvard HSIL Top 20 — Global Phase 2026
+            <span style={{ color: '#1A1F3C', fontSize: '13px', fontWeight: 600 }}>
+              🏆 2nd place — Harvard HSIL Hackathon 2026
             </span>
           </div>
 
-        </div>
-      </section>
-
-      {/* WHO SHOULD REACH OUT */}
-      <section style={{ backgroundColor: COLORS.sectionBg }} className="py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-
-          <span style={{ color: COLORS.label }}
-            className="text-xs font-semibold tracking-widest uppercase">
-            Who should reach out
-          </span>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            {profiles.map(profile => (
-              <div key={profile.title} style={{
-                backgroundColor: COLORS.profileBg,
-                border: `1px solid ${COLORS.profileBorder}`,
-                borderRadius: '16px',
-                padding: '24px',
-              }}>
-                <div style={{
-                  backgroundColor: COLORS.profileIconBg,
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: '10px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '16px',
-                }}>
-                  <profile.icon size={20} style={{ color: COLORS.profileIcon }} />
-                </div>
-                <h3 style={{ color: COLORS.profileTitle, fontSize: '15px', fontWeight: 700, marginBottom: '8px' }}>
-                  {profile.title}
-                </h3>
-                <p style={{ color: COLORS.profileBody, fontSize: '13px', lineHeight: 1.6 }}>
-                  {profile.body}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

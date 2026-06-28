@@ -92,7 +92,7 @@ export default function ExperiencePage() {
       {games.map((game, index) => (
         <section
           key={game.number}
-          style={{ backgroundColor: index % 2 === 0 ? COLORS.sectionBg : COLORS.sectionAlt }}
+          style={{ backgroundColor: index % 2 === 0 ? COLORS.sectionBg : '#F7F9FC' }}
           className="py-24 px-6"
         >
           <div className="max-w-5xl mx-auto">

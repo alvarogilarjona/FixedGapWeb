@@ -13,6 +13,9 @@ import {
   FlaskConical,
   FileText,
   BarChart3,
+  Mail,
+  HelpCircle,
+  Newspaper,
 } from 'lucide-react';
 
 interface MegaMenuItem {
@@ -101,6 +104,12 @@ const menuItems: MenuItem[] = [
         description: 'Why we exist and what drives us',
         href: '/company/behind-fixedgap',
       },
+      {
+        icon: <Newspaper className="w-5 h-5" />,
+        label: 'Media',
+        description: 'Press coverage and media mentions',
+        href: '/company/media',
+      },
     ],
   },
   {
@@ -128,12 +137,36 @@ const menuItems: MenuItem[] = [
       },
     ],
   },
+  {
+    label: 'Contact',
+    description:
+      'Whether you\'re a neurologist, an investor, or just curious — we\'d love to hear from you.',
+    items: [
+      {
+        icon: <Mail className="w-5 h-5" />,
+        label: 'Get in Touch',
+        description: 'Send a message or reach out directly',
+        href: '/contact',
+      },
+      {
+        icon: <HelpCircle className="w-5 h-5" />,
+        label: 'FAQ',
+        description: 'Quick answers to common questions',
+        href: '/contact/faq',
+      },
+      {
+        icon: <Users className="w-5 h-5" />,
+        label: 'Who We Work With',
+        description: 'Our partners, hospitals, and who should reach out',
+        href: '/contact/who-we-work-with',
+      },
+    ],
+  },
 ];
 
 const directItems: DirectItem[] = [
   { label: 'Market', href: '/market' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
@@ -141,6 +174,8 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileOpenMenu, setMobileOpenMenu] = useState<string | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [mariaVideoOpen, setMariaVideoOpen] = useState(false);
+  const [ourStoryVideoOpen, setOurStoryVideoOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-border h-20">
@@ -204,8 +239,8 @@ export default function Navbar() {
                           position: 'absolute',
                           top: 'calc(100% + 12px)',
                           left: '50%',
-                          marginLeft: '-550px',
-                          minWidth: '1100px',
+                          marginLeft: '-600px',
+                          minWidth: '1200px',
                           backgroundColor: 'white',
                           borderRadius: '16px',
                           boxShadow: '0 8px 40px rgba(0,0,0,0.12)',
@@ -214,7 +249,7 @@ export default function Navbar() {
                         }}
                         className="animate-fadeIn"
                       >
-                        <div className="flex gap-10 p-8">
+                        <div className="flex gap-10 p-10">
                           {/* Left Column */}
                           <div className="flex flex-col justify-between w-56 shrink-0">
                             <div>
@@ -236,25 +271,46 @@ export default function Navbar() {
                           {/* Right Column - Video Thumbnails */}
                           <div style={{
                             display: 'grid',
-                            gridTemplateColumns: '1fr 1fr',
+                            gridTemplateColumns: '1fr 1fr 1fr',
                             gap: '12px',
                             flex: 1,
                           }}>
                             {/* Video 1 - Our Story */}
                             <div>
-                              <div style={{
-                                borderRadius: '8px',
-                                overflow: 'hidden',
-                                aspectRatio: '16/9',
-                                backgroundColor: '#141B2D',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                flexShrink: 0,
-                              }}>
-                                <p style={{ color: '#6B7689', fontSize: '11px' }}>
-                                  Video not available yet
-                                </p>
+                              <div
+                                onClick={() => setOurStoryVideoOpen(true)}
+                                style={{
+                                  position: 'relative',
+                                  borderRadius: '8px',
+                                  overflow: 'hidden',
+                                  aspectRatio: '16/9',
+                                  backgroundColor: '#0A0F1E',
+                                  cursor: 'pointer',
+                                  flexShrink: 0,
+                                }}
+                                className="group"
+                              >
+                                <div style={{
+                                  position: 'absolute',
+                                  inset: 0,
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  backgroundColor: 'rgba(0,0,0,0.4)',
+                                }}
+                                className="group-hover:bg-black/30 transition-colors"
+                                >
+                                  <div style={{
+                                    backgroundColor: 'rgba(255,255,255,0.9)',
+                                    borderRadius: '999px',
+                                    padding: '6px 12px',
+                                    fontSize: '11px',
+                                    fontWeight: 600,
+                                    color: '#1A1F3C',
+                                  }}>
+                                    Watch Video
+                                  </div>
+                                </div>
                               </div>
                               <p className="text-sm text-brand-navy font-semibold mt-3">
                                 Our Story
@@ -314,6 +370,50 @@ export default function Navbar() {
                               </p>
                               <p className="text-sm text-brand-muted mt-1">
                                 FixedGap game walkthrough
+                              </p>
+                            </div>
+
+                            {/* Video 3 - Meet Maria */}
+                            <div>
+                              <div
+                                onClick={() => setMariaVideoOpen(true)}
+                                style={{
+                                  position: 'relative',
+                                  borderRadius: '8px',
+                                  overflow: 'hidden',
+                                  aspectRatio: '16/9',
+                                  backgroundColor: '#0A0F1E',
+                                  cursor: 'pointer',
+                                }}
+                                className="group"
+                              >
+                                <div style={{
+                                  position: 'absolute',
+                                  inset: 0,
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  backgroundColor: 'rgba(0,0,0,0.4)',
+                                }}
+                                className="group-hover:bg-black/30 transition-colors"
+                                >
+                                  <div style={{
+                                    backgroundColor: 'rgba(255,255,255,0.9)',
+                                    borderRadius: '999px',
+                                    padding: '6px 12px',
+                                    fontSize: '11px',
+                                    fontWeight: 600,
+                                    color: '#1A1F3C',
+                                  }}>
+                                    Watch Video
+                                  </div>
+                                </div>
+                              </div>
+                              <p className="text-sm text-brand-navy font-semibold mt-3">
+                                Meet Maria
+                              </p>
+                              <p className="text-sm text-brand-muted mt-1">
+                                A patient story
                               </p>
                             </div>
                           </div>
@@ -630,6 +730,120 @@ export default function Navbar() {
                 View full demo page →
               </a>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Our Story Video Modal */}
+      {ourStoryVideoOpen && (
+        <div
+          onClick={() => setOurStoryVideoOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0,0,0,0.85)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '24px',
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: '100%',
+              maxWidth: '900px',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              position: 'relative',
+            }}
+          >
+            <button
+              onClick={() => setOurStoryVideoOpen(false)}
+              style={{
+                position: 'absolute',
+                top: '12px',
+                right: '12px',
+                zIndex: 10,
+                backgroundColor: 'rgba(0,0,0,0.5)',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '999px',
+                width: '32px',
+                height: '32px',
+                cursor: 'pointer',
+              }}
+            >
+              ✕
+            </button>
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/TYvQgTtPtYA?autoplay=1"
+              title="FixedGap — Our Story"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ display: 'block' }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Maria Video Modal */}
+      {mariaVideoOpen && (
+        <div
+          onClick={() => setMariaVideoOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0,0,0,0.85)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '24px',
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: '100%',
+              maxWidth: '900px',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              position: 'relative',
+            }}
+          >
+            <button
+              onClick={() => setMariaVideoOpen(false)}
+              style={{
+                position: 'absolute',
+                top: '12px',
+                right: '12px',
+                zIndex: 10,
+                backgroundColor: 'rgba(0,0,0,0.5)',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '999px',
+                width: '32px',
+                height: '32px',
+                cursor: 'pointer',
+              }}
+            >
+              ✕
+            </button>
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/UqnF2CcWmIo?autoplay=1"
+              title="FixedGap — Meet Maria"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ display: 'block' }}
+            />
           </div>
         </div>
       )}

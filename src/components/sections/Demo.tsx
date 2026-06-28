@@ -24,16 +24,16 @@ export default function Demo() {
           <div>
             <span style={{ color: COLORS.label }}
               className="text-xs font-semibold tracking-widest uppercase">
-              See it in action
+              Our Story
             </span>
             <h2 style={{ color: COLORS.headline }}
               className="text-3xl md:text-4xl font-bold mt-4 leading-tight max-w-2xl">
-              Watch how FixedGap works.
+              The problem we are solving.
             </h2>
             <p style={{ color: COLORS.body }}
               className="text-base mt-4 max-w-xl leading-relaxed">
-              From a simple game to a full clinical report —
-              see the complete session in under 2 minutes.
+              Millions of stroke patients recover at home every day.
+              Their clinical teams only see them weeks later. Watch how FixedGap closes this gap.
             </p>
           </div>
           <a href="/demo"
@@ -52,30 +52,19 @@ export default function Demo() {
           style={{
             borderRadius: '16px',
             overflow: 'hidden',
-            border: `1px solid ${COLORS.placeholderBorder}`,
             aspectRatio: '16/9',
-            backgroundColor: COLORS.placeholderBg,
-            position: 'relative',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '12px',
           }}
         >
-          <p style={{
-            color: '#FFFFFF',
-            fontSize: '18px',
-            fontWeight: 600
-          }}>
-            Video not available yet.
-          </p>
-          <p style={{
-            color: '#98A2B3',
-            fontSize: '14px'
-          }}>
-            Coming soon.
-          </p>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/TYvQgTtPtYA"
+            title="FixedGap — Our Story"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{ border: 'none', display: 'block' }}
+          />
         </motion.div>
 
       </div>
